@@ -34,13 +34,14 @@ Tenho interesse em atuar com:
 
 ## Projetos em destaque
 
-| Projeto | Descrição | Tecnologias |
-|---|---|---|
-| **StudyFlow** | Kanban de estudos com organização de tarefas, filtros, temas e persistência local. | React, TypeScript, Vite |
-| **Vinícola Serra Dourada** | Landing page premium para vinícola, com visual sofisticado e foco em conversão. | HTML, CSS, JavaScript |
-| **Nocturna Atelier** | Loja dark premium para joias autorais, com identidade visual forte e interface elegante. | HTML, CSS, JavaScript, Python |
-| **Travelgram** | Projeto visual inspirado em redes sociais de viagem. | HTML, CSS |
-| **Turismo** | Landing page para turismo com foco em estrutura visual e responsividade. | HTML, CSS |
+| Projeto | Descrição | Tecnologias | Link |
+|---|---|---|---|
+| **StudyFlow** | Kanban de estudos com organização de tarefas, filtros, temas e persistência local. | React, TypeScript, Vite | [Repositório](https://github.com/WessYu/studyflow) |
+| **Vinícola Serra Dourada** | Landing page premium para vinícola, com visual sofisticado e foco em conversão. | React, Vite, TailwindCSS | [Repositório](https://github.com/WessYu/vinicola-serra-dourada) |
+| **Nocturna Atelier** | Loja dark premium para joias autorais, com identidade visual forte e interface elegante. | HTML, CSS, JavaScript, Python | [Repositório](https://github.com/WessYu/Nocturna-Atelier) |
+| **Travelgram** | Projeto visual inspirado em redes sociais de viagem. | HTML, CSS | [Repositório](https://github.com/WessYu/Travelgram) |
+| **Turismo** | Landing page para turismo com foco em estrutura visual e responsividade. | HTML, CSS | [Repositório](https://github.com/WessYu/Turismo) |
+| **Landing Page** | Projeto base para estudo de layout, UI, responsividade e estrutura front-end. | HTML, CSS, JavaScript | [Repositório](https://github.com/WessYu/landing-page) |
 
 ---
 
