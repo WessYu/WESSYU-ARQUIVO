@@ -15,24 +15,28 @@ const LINKS = {
 
 const MANUAL_PROJECTS: ProjectLike[] = [
   {
-    key: 'travelgram',
-    title: 'Travelgram',
-    eyebrow: 'UI social',
-    description: 'Feed visual inspirado em redes sociais, com composição elegante, hierarquia clara e atenção ao ritmo do layout.',
-    note: 'Estudo focado em organização visual, espaçamento e leitura agradável.',
-    imageUrl: '/projects/travelgram.png',
-    codeUrl: 'https://github.com/WessYu',
-    tags: ['Layout editorial', 'Responsivo', 'UI'],
+    key: 'logic-quest',
+    title: 'Logic Quest',
+    eyebrow: 'Projeto principal',
+    description:
+      'Aplicação pensada como um projeto principal de portfólio, unindo interface gamificada, lógica de interação e experiência mais completa para mostrar evolução em front-end.',
+    note:
+      'Destaque maior por mostrar produto, raciocínio de UX, organização de componentes e uma entrega com mais personalidade do que um estudo simples.',
+    imageUrl: repoOgImage('WessYu/Logic-quest'),
+    codeUrl: 'https://github.com/WessYu/Logic-quest',
+    tags: ['Projeto principal', 'React', 'Lógica', 'UX gamificada'],
   },
   {
-    key: 'turismo',
-    title: 'Turismo',
-    eyebrow: 'Experiência de marca',
-    description: 'Página com foco em destinos, conteúdo envolvente e construção de atmosfera para apresentar experiências de viagem.',
-    note: 'Prioridade em narrativa visual, contraste e seções escaneáveis.',
-    imageUrl: '/projects/turismo.png',
-    codeUrl: 'https://github.com/WessYu',
-    tags: ['Storytelling', 'Landing page', 'Visual'],
+    key: 'nocturna-atelier',
+    title: 'Nocturna Atelier',
+    eyebrow: 'Marca autoral',
+    description:
+      'Experiência visual com estética escura, elegante e editorial, criada para transmitir presença de marca e uma navegação mais refinada.',
+    note:
+      'Case forte para mostrar direção visual, atmosfera premium e cuidado com identidade, tipografia e composição.',
+    imageUrl: repoOgImage('WessYu/Nocturna-Atelier'),
+    codeUrl: 'https://github.com/WessYu/Nocturna-Atelier',
+    tags: ['Branding', 'Dark UI', 'Editorial', 'Front-end'],
   },
   {
     key: 'landing',
@@ -113,8 +117,6 @@ function pickLocalCover(repoName: string) {
     [/todo|to-?do|todolist|task/, '/projects/todo.png'],
     [/landing|lp|landingpage/, '/projects/landing.png'],
     [/imc|bmi|calculadora/, '/projects/imc.png'],
-    [/travelgram|travel|gram|feed/, '/projects/travelgram.png'],
-    [/turismo|travel|tour/, '/projects/turismo.png'],
   ]
 
   for (const [regex, image] of rules) {
