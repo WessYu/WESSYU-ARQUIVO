@@ -51,6 +51,107 @@
 
 .work {
   border-top: 1px solid var(--line);
+  background: #050505;
+}
+
+.projectScene {
+  min-height: 88vh;
+}
+
+.projectLabel {
+  padding-bottom: 48px;
+}
+
+.caseStudy,
+.evolution,
+.person,
+.contact {
+  background: #050505;
+}
+
+.caseStudy {
+  padding-top: 84px;
+  padding-bottom: 84px;
+}
+
+.caseHeader {
+  gap: 28px;
+}
+
+.caseHero {
+  margin-top: 32px;
+}
+
+.caseHero img {
+  max-height: 62vh;
+}
+
+.caseGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 28px;
+  margin-top: 40px;
+}
+
+.caseBlock,
+.listBlock {
+  padding-top: 16px;
+}
+
+.caseBlock p,
+.listBlock div {
+  margin-top: 12px;
+}
+
+.technicalNotes {
+  margin-top: 42px;
+}
+
+.noteGrid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.noteGrid span {
+  min-height: 56px;
+  padding: 12px;
+}
+
+.screens {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 48px;
+}
+
+.screens figure:first-child {
+  grid-column: 1 / -1;
+}
+
+.screens img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.caseActions {
+  margin-top: 34px;
+}
+
+.evolution,
+.person {
+  padding-top: 88px;
+  padding-bottom: 88px;
+}
+
+@media (max-width: 980px) {
+  .caseGrid,
+  .noteGrid,
+  .screens {
+    grid-template-columns: 1fr;
+  }
+
+  .screens figure:first-child {
+    grid-column: auto;
+  }
 }
 
 @media (max-width: 720px) {
@@ -67,5 +168,22 @@
   .introRole {
     max-width: calc(100% - (var(--pad) * 2));
     font-size: 0.9rem;
+  }
+
+  .projectScene {
+    min-height: 84vh;
+  }
+
+  .caseStudy {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  .caseHero img {
+    max-height: 48vh;
+  }
+
+  .screens img {
+    aspect-ratio: auto;
   }
 }
