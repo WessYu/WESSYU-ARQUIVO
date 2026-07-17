@@ -7,15 +7,15 @@ The site is structured as an archive of selected work instead of a classic resum
 - what was built
 - how each project was approached
 - how the work evolved from 2023 to 2026
-- recent GitHub activity pulled automatically
+- technical decisions and product process
 
 ## Selected Work
 
 - Receitas
-- Vinicola Serra Dourada
-- Turismo
-- Travelgram
-- To-Do App
+- DevMatch
+- Logic Quest
+- HELENA
+- Differenza
 
 ## Running Locally
 

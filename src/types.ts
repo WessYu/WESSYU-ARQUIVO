@@ -1,23 +1,6 @@
-export type GitHubEvent = {
-  id: string
-  type: string
-  repo: {
-    name: string
-  }
-  payload?: {
-    commits?: Array<{
-      sha: string
-      message: string
-      url?: string
-    }>
-  }
-}
-
-export type CommitItem = {
-  id: string
-  message: string
-  repo: string
-  url: string
+export type ProjectScreen = {
+  label: string
+  src: string
 }
 
 export type ProjectCase = {
@@ -26,14 +9,14 @@ export type ProjectCase = {
   title: string
   year: string
   image: string
-  screens: string[]
   repository: string
   demo?: string
   summary: string
-  context: string
-  challenge: string
-  solution: string
+  problem: string
   decisions: string[]
+  implementation: string
+  learnings: string[]
+  technicalNotes: string[]
   process: string[]
-  architecture: string[]
+  screens: ProjectScreen[]
 }
