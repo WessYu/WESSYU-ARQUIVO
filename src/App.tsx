@@ -118,7 +118,9 @@ const PROJECTS: ProjectCase[] = [
     screens: [
       { label: 'Antes', src: '/projects/differenza/overview.svg' },
       { label: 'Depois', src: '/projects/differenza/after.png' },
-      { label: 'Solucoes', src: '/projects/differenza/solutions.png' },
+      { label: 'Servicos', src: '/projects/differenza/services.png' },
+      { label: 'O espaco', src: '/projects/differenza/experience.png' },
+      { label: 'Unidades', src: '/projects/differenza/units.png' },
     ],
   },
 ]
