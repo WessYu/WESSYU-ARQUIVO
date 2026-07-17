@@ -42,7 +42,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
             background: '#0b0b0b',
           }}
         >
-          <p style={{ margin: 0, fontSize: 12, color: 'rgba(242,240,234,.48)', fontWeight: 800 }}>WESSYU ARQUIVO</p>
+          <p style={{ margin: 0, fontSize: 12, color: 'rgba(242,240,234,.48)', fontWeight: 800 }}>ARQUIVO WESSYU</p>
           <h1 style={{ margin: '12px 0 0', fontSize: 24, fontFamily: '"Sora", Arial, sans-serif' }}>Não foi possível carregar o arquivo.</h1>
           <p style={{ marginTop: 12, color: 'rgba(242,240,234,.62)', lineHeight: 1.7 }}>
             A mensagem principal do erro aparece abaixo para depuração.

@@ -313,7 +313,8 @@ h3 {
 .listBlock,
 .caseBlock,
 .architecture,
-.technicalNotes {
+.technicalNotes,
+.caseProcess {
   border-top: 1px solid var(--line);
 }
 
@@ -414,6 +415,41 @@ h3 {
 .technicalNotes {
   margin-top: 64px;
   padding-top: 24px;
+}
+
+.caseProcess {
+  margin-top: 64px;
+  padding-top: 24px;
+}
+
+.caseProcess ol {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.caseProcess li {
+  min-height: 150px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.caseProcess span {
+  color: var(--quiet);
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.caseProcess p {
+  margin-top: 42px;
+  color: var(--text);
+  font-weight: 800;
+  line-height: 1.5;
 }
 
 .noteGrid,
@@ -536,45 +572,6 @@ h3 {
   margin-top: 48px;
 }
 
-.projectProcessGrid {
-  display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 48px;
-}
-
-.projectProcessCard {
-  min-height: 330px;
-  padding: 20px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.projectProcessCard span {
-  color: var(--quiet);
-  font-size: 0.78rem;
-  font-weight: 800;
-}
-
-.projectProcessCard h3 {
-  margin-top: 16px;
-  font-size: 1.15rem;
-}
-
-.projectProcessCard ol {
-  display: grid;
-  gap: 12px;
-  margin: 28px 0 0;
-  padding-left: 18px;
-  color: var(--muted);
-}
-
-.projectProcessCard li {
-  padding-left: 4px;
-  line-height: 1.55;
-}
-
 .processRail article {
   min-height: 180px;
   padding: 20px;
@@ -678,7 +675,7 @@ h3 {
   .noteGrid,
   .focusGrid,
   .processRail,
-  .projectProcessGrid {
+  .caseProcess ol {
     grid-template-columns: 1fr;
   }
 

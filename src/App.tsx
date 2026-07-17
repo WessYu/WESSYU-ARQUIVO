@@ -5,6 +5,7 @@ const LINKS = {
   github: 'https://github.com/WessYu',
   linkedin: 'https://www.linkedin.com/in/wesley-santos-cruz-b57589213/',
   email: 'mailto:wess.c@proton.me',
+  resume: '/Wesley_Cruz_CV_PT.pdf',
 }
 
 const PROJECTS: ProjectCase[] = [
@@ -414,18 +415,17 @@ export default function App() {
   return (
     <main className="archiveShell" id="top">
       <nav className="archiveNav" aria-label="Navegação principal">
-        <a href="#top">WESSYU ARQUIVO</a>
+        <a href="#top">ARQUIVO WESSYU</a>
         <div>
           <a href="#top">Arquivo</a>
           <a href="#projects">Projetos</a>
-          <a href="#process">Processo</a>
-          <a href="#person">Pessoa</a>
+          <a href="#sobre">Sobre</a>
           <a href="#contact">Contato</a>
         </div>
       </nav>
 
       <section className="intro" aria-labelledby="intro-title">
-        <p className="cornerMark">WESSYU ARQUIVO</p>
+        <p className="cornerMark">ARQUIVO WESSYU</p>
         <div className="introCenter" data-reveal>
           <h1 id="intro-title">TRABALHOS SELECIONADOS</h1>
           <p>Projetos criados durante minha transição do design para o desenvolvimento.</p>
@@ -512,6 +512,18 @@ export default function App() {
           </div>
         </div>
 
+        <div className="caseProcess" data-reveal>
+          <p className="metaLine">Processo</p>
+          <ol>
+            {activeProject.process.map((step, index) => (
+              <li key={step}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <p>{step}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
         <section className="screens" aria-label={`Telas do projeto ${activeProject.title}`}>
           {activeProject.screens.map((screen) => (
             <figure key={`${activeProject.id}-${screen.label}`} data-reveal>
@@ -528,26 +540,6 @@ export default function App() {
           <a href={activeProject.repository} target="_blank" rel="noreferrer">
             Ver código
           </a>
-        </div>
-      </section>
-
-      <section className="process" id="process" aria-labelledby="process-title">
-        <div className="sectionTitle" data-reveal>
-          <p className="metaLine">Processo</p>
-          <h2 id="process-title">Decisões específicas de cada projeto.</h2>
-        </div>
-        <div className="projectProcessGrid">
-          {PROJECTS.map((project) => (
-            <article className="projectProcessCard" key={`${project.id}-process`} data-reveal>
-              <span>{project.number}</span>
-              <h3>{project.title}</h3>
-              <ol>
-                {project.process.map((step) => (
-                  <li key={step}>{step}</li>
-                ))}
-              </ol>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -568,13 +560,13 @@ export default function App() {
         </div>
       </section>
 
-      <section className="person" id="person" aria-labelledby="person-title">
+      <section className="person" id="sobre" aria-labelledby="person-title">
         <div className="sectionTitle" data-reveal>
-          <p className="metaLine">Pessoa</p>
+          <p className="metaLine">Sobre</p>
           <h2 id="person-title">Designer desde 2020. Desenvolvedor front-end desde 2023.</h2>
         </div>
         <p data-reveal>
-          Baseado no Brasil.
+          Caxias do Sul, RS — Brasil.
           <br />
           Focado em interfaces, aplicações web e produtos digitais.
         </p>
@@ -590,6 +582,9 @@ export default function App() {
             LinkedIn
           </a>
           <a href={LINKS.email}>E-mail</a>
+          <a href={LINKS.resume} download>
+            Baixar currículo
+          </a>
         </div>
       </footer>
     </main>
