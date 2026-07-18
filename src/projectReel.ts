@@ -1,4 +1,5 @@
 let cleanupProjectReel: (() => void) | null = null
+let initAttempts = 0
 
 export function initProjectReel() {
   cleanupProjectReel?.()
@@ -6,8 +7,15 @@ export function initProjectReel() {
   const reel = document.querySelector<HTMLElement>('.work')
   const scenes = Array.from(reel?.querySelectorAll<HTMLElement>('.projectScene') ?? [])
 
-  if (!reel || scenes.length === 0) return
+  if (!reel || scenes.length === 0) {
+    if (initAttempts < 10) {
+      initAttempts += 1
+      window.setTimeout(initProjectReel, 100)
+    }
+    return
+  }
 
+  initAttempts = 0
   reel.classList.add('projectReel')
 
   const nav = document.createElement('aside')
