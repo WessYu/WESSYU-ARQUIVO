@@ -4,8 +4,10 @@ import App from './App'
 import './styles.css'
 import './refinements.css'
 import './tech-stack.css'
+import './project-reel.css'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { TechStack } from './components/TechStack'
+import { initProjectReel } from './projectReel'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -15,3 +17,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </ErrorBoundary>
   </React.StrictMode>
 )
+
+window.setTimeout(initProjectReel, 0)
