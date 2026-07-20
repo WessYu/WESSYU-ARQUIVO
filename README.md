@@ -6,7 +6,7 @@
 
 Portfólio pessoal desenvolvido para apresentar projetos selecionados construídos durante a transição do design para o desenvolvimento front-end.
 
-**Acesso:** https://portifoliowess.netlify.app
+**Acesso:** (https://wessyu-arquivo.vercel.app/)
 
 ## Sobre
 
