@@ -1,0 +1,226 @@
+.archiveNav {
+  backdrop-filter: blur(18px);
+  background: rgba(5, 5, 5, 0.82);
+}
+
+.archiveNav > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  letter-spacing: 0.08em;
+}
+
+.archiveNav > a::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #8b84ff;
+  box-shadow: 0 0 16px rgba(139, 132, 255, 0.72);
+}
+
+.intro {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.intro::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(139, 132, 255, 0.09), transparent 24%),
+    linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.012) 100%);
+  pointer-events: none;
+}
+
+.introCenter::before {
+  content: 'SELECTED WORK / PRODUCT + FRONT-END';
+  display: inline-flex;
+  margin-bottom: 24px;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: rgba(242, 240, 234, 0.54);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.intro h1 {
+  font-size: clamp(4rem, 9vw, 8.2rem);
+  line-height: 0.84;
+  letter-spacing: -0.075em;
+  text-wrap: balance;
+}
+
+.introCenter > p {
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.why {
+  position: relative;
+}
+
+.why::after {
+  content: 'DESIGN → SISTEMAS → PRODUTOS';
+  position: absolute;
+  right: var(--pad);
+  top: 40px;
+  color: rgba(242, 240, 234, 0.24);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.projectReel .projectLabel p {
+  max-width: 590px;
+}
+
+.caseStudy {
+  position: relative;
+}
+
+.caseStudy::before {
+  content: 'CASE STUDY';
+  position: sticky;
+  top: 92px;
+  float: right;
+  margin-right: -12px;
+  color: rgba(242, 240, 234, 0.2);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  writing-mode: vertical-rl;
+}
+
+.caseHeader h2 {
+  max-width: 760px;
+  font-size: clamp(3rem, 6vw, 6.4rem);
+  letter-spacing: -0.06em;
+}
+
+.caseHero {
+  position: relative;
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 34px 110px rgba(0, 0, 0, 0.42);
+}
+
+.caseGrid {
+  gap: 18px;
+}
+
+.caseBlock,
+.listBlock {
+  min-height: 250px;
+  padding: 22px 18px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.012));
+}
+
+.caseBlock h3,
+.listBlock h3 {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.noteGrid span {
+  transition: border-color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.noteGrid span:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139, 132, 255, 0.3);
+  background: rgba(139, 132, 255, 0.055);
+}
+
+.caseActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.caseActions a {
+  min-width: 150px;
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+.caseActions a:first-child {
+  border-color: rgba(139, 132, 255, 0.38);
+  background: rgba(139, 132, 255, 0.08);
+}
+
+.evolutionGrid .yearBlock:last-child {
+  border-color: rgba(139, 132, 255, 0.3);
+  background: rgba(139, 132, 255, 0.045);
+}
+
+.contact {
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  height: 60%;
+  background: radial-gradient(circle at 18% 100%, rgba(139, 132, 255, 0.08), transparent 34%);
+  pointer-events: none;
+}
+
+.contact > p {
+  position: relative;
+  max-width: 850px;
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: clamp(2rem, 4.5vw, 4.8rem);
+  line-height: 0.98;
+  letter-spacing: -0.055em;
+}
+
+.contact > div {
+  position: relative;
+}
+
+@media (max-width: 900px) {
+  .caseGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .caseBlock,
+  .listBlock {
+    min-height: 210px;
+  }
+}
+
+@media (max-width: 720px) {
+  .introCenter::before {
+    margin-bottom: 18px;
+    font-size: 0.58rem;
+  }
+
+  .intro h1 {
+    font-size: clamp(3rem, 15vw, 5.4rem);
+    line-height: 0.88;
+  }
+
+  .why::after,
+  .caseStudy::before {
+    display: none;
+  }
+
+  .caseGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .caseBlock,
+  .listBlock {
+    min-height: 0;
+  }
+
+  .contact > p {
+    font-size: clamp(2.2rem, 12vw, 4rem);
+  }
+}
