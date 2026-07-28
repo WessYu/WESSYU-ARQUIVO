@@ -4,7 +4,7 @@
   <img src="./assets/readme-preview.svg" alt="Preview do WESSYU Arquivo" width="100%" />
 </p>
 
-Portfólio pessoal desenvolvido para apresentar projetos selecionados construídos durante a transição do design para o desenvolvimento front-end.
+Portfólio pessoal desenvolvido para apresentar projetos selecionados construídos durante minha transição do design para o desenvolvimento front-end e full stack.
 
 **Acesso:** (https://wessyu-arquivo.vercel.app/)
 
@@ -12,21 +12,29 @@ Portfólio pessoal desenvolvido para apresentar projetos selecionados construíd
 
 Este projeto foi pensado como um arquivo de trabalhos, não como um currículo tradicional.
 
-Cada projeto apresenta contexto, problema, solução, decisões de implementação e resultado final.
+Cada projeto apresenta contexto, problema, solução, decisões de implementação e resultado final. A navegação principal funciona como um reel editorial, enquanto os estudos de caso mostram o raciocínio de produto e as decisões técnicas por trás de cada trabalho.
+
+## Projeto em destaque
+
+### Component Vault
+Workspace full stack para criar, organizar, testar e reutilizar componentes de interface. Inclui autenticação, contas, favoritos por usuário, painel administrativo, edição persistente, coleções, Convex e experiências de motion/interação.
+
+- Projeto: https://component-vault-dun.vercel.app
+- Código: https://github.com/WessYu/component-vault
 
 ## Projetos Selecionados
 
 ### Receitas
-Plataforma de receitas com autenticação, favoritos, perfil de usuário e painel administrativo.
+Plataforma full stack de receitas com autenticação, favoritos, perfil de usuário e painel administrativo.
 
 ### DevMatch
-Conceito de plataforma para conexão entre desenvolvedores e contratantes.
+Produto para conexão entre desenvolvedores e contratantes, com perfis por papel, matches, feed e chat contextual.
 
 ### Logic Quest
-Experiência de aprendizado inspirada em IDEs para ensino de lógica de programação.
+Experiência de aprendizado inspirada em ferramentas de desenvolvimento para ensino de lógica de programação.
 
 ### HELENA
-Sistema administrativo focado em organização de processos e informações.
+Sistema jurídico com formulários, protocolos, contatos e painel administrativo.
 
 ### Differenza
 Redesign conceitual para salão e barbearia com foco em experiência digital premium.
@@ -49,6 +57,7 @@ Redesign conceitual para salão e barbearia com foco em experiência digital pre
 **Back-end e dados**
 
 ![Node.js](https://img.shields.io/badge/Node.js-0A0A0A?style=flat-square&logo=nodedotjs&logoColor=F2F0EA)
+![Convex](https://img.shields.io/badge/Convex-0A0A0A?style=flat-square&logo=convex&logoColor=F2F0EA)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0A0A0A?style=flat-square&logo=postgresql&logoColor=F2F0EA)
 ![Prisma](https://img.shields.io/badge/Prisma-0A0A0A?style=flat-square&logo=prisma&logoColor=F2F0EA)
 
