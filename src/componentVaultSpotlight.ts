@@ -48,7 +48,7 @@ export function mountComponentVaultSpotlight() {
     </button>
 
     <div class="projectLabel componentVaultLabel is-visible" data-reveal>
-      <span class="componentVaultKicker">000 / 2026 — DESTAQUE</span>
+      <span class="componentVaultKicker">FEATURED / 2026</span>
       <h2>Component Vault</h2>
       <p>Workspace full stack para criar, organizar, testar e salvar componentes de interface, com contas, favoritos, administração, Convex e experiências de motion.</p>
       <div class="componentVaultActions">
