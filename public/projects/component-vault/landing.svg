@@ -1,0 +1,169 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1407" height="852" viewBox="0 0 1407 852" role="img" aria-labelledby="title desc">
+  <title id="title">Component Vault landing page</title>
+  <desc id="desc">Light Component Vault landing page with the Build once. Reuse everywhere. hero and interactive playground preview.</desc>
+  <defs>
+    <linearGradient id="page" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f4f6ff"/>
+      <stop offset=".5" stop-color="#fafbff"/>
+      <stop offset="1" stop-color="#fff8ff"/>
+    </linearGradient>
+    <radialGradient id="glowA" cx="0" cy="0" r="1" gradientTransform="translate(95 85) rotate(34) scale(330 300)">
+      <stop stop-color="#6b63ff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#6b63ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glowB" cx="0" cy="0" r="1" gradientTransform="translate(1332 88) rotate(137) scale(310 260)">
+      <stop stop-color="#ee79ca" stop-opacity=".13"/>
+      <stop offset="1" stop-color="#ee79ca" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#625cf6"/>
+      <stop offset="1" stop-color="#8670ff"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#625cf6"/>
+      <stop offset="1" stop-color="#d36adc"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="26" stdDeviation="34" flood-color="#343851" flood-opacity=".15"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#555a78" flood-opacity=".12"/>
+    </filter>
+  </defs>
+
+  <rect width="1407" height="852" fill="url(#page)"/>
+  <rect width="1407" height="852" fill="url(#glowA)"/>
+  <rect width="1407" height="852" fill="url(#glowB)"/>
+
+  <!-- Header -->
+  <g transform="translate(72 19)">
+    <rect width="40" height="40" rx="13" fill="url(#brand)" filter="url(#soft)"/>
+    <path d="M20 10.5 28.8 15v10L20 29.5 11.2 25V15L20 10.5Z" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <path d="m11.8 15.4 8.2 4.3 8.2-4.3M20 19.7v9.1" fill="none" stroke="#fff" stroke-width="1.4"/>
+    <text x="54" y="26" font-family="Arial, sans-serif" font-size="17" font-weight="700" fill="#1b1d2b">Component Vault</text>
+  </g>
+  <text x="1108" y="44" font-family="Arial, sans-serif" font-size="15" font-weight="600" fill="#676d80">Login</text>
+  <g transform="translate(1169 19)" filter="url(#soft)">
+    <rect width="145" height="40" rx="16" fill="#181a29"/>
+    <text x="17" y="25" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#fff">Explore vault</text>
+    <path d="M116 20h10m-4-4 4 4-4 4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Left hero -->
+  <g transform="translate(73 248)">
+    <g filter="url(#soft)">
+      <rect width="250" height="31" rx="15.5" fill="#fff" stroke="#e2e4ee"/>
+      <path d="M15 10v11M9.5 15.5h11M13 12l4 7M17 12l-4 7" stroke="#6a62f7" stroke-width="1.25" stroke-linecap="round"/>
+      <text x="37" y="21" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#625cf6">Visual Component Playground</text>
+    </g>
+
+    <text x="0" y="114" font-family="Arial, sans-serif" font-size="74" font-weight="800" letter-spacing="-3" fill="#191b2b">Build once.</text>
+    <text x="0" y="188" font-family="Arial, sans-serif" font-size="74" font-weight="800" letter-spacing="-3" fill="#655df6">Reuse</text>
+    <text x="0" y="262" font-family="Arial, sans-serif" font-size="74" font-weight="800" letter-spacing="-3" fill="#655df6">everywhere.</text>
+    <rect x="0" y="275" width="520" height="6" rx="3" fill="url(#accent)"/>
+
+    <text x="0" y="325" font-family="Arial, sans-serif" font-size="19" fill="#747b91">A living workspace to save, test, document and reuse the</text>
+    <text x="0" y="358" font-family="Arial, sans-serif" font-size="19" fill="#747b91">interface pieces behind your products.</text>
+
+    <g transform="translate(0 400)" filter="url(#soft)">
+      <rect width="166" height="48" rx="15" fill="#625cf6"/>
+      <text x="19" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#fff">Start exploring</text>
+      <path d="M132 24h12m-4-4 4 4-4 4" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g transform="translate(178 400)" filter="url(#soft)">
+      <rect width="207" height="48" rx="15" fill="#fff" stroke="#dfe2eb"/>
+      <text x="21" y="30" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#252738">See motion experiences</text>
+    </g>
+
+    <g transform="translate(0 490)" font-family="Arial, sans-serif" font-size="14" fill="#798094">
+      <text x="0" y="0" fill="#42c598">✓</text><text x="23" y="0">Live previews</text>
+      <text x="129" y="0" fill="#42c598">✓</text><text x="152" y="0">Motion patterns</text>
+      <text x="278" y="0" fill="#42c598">✓</text><text x="301" y="0">Props editor</text>
+    </g>
+  </g>
+
+  <!-- Playground card -->
+  <g transform="translate(649 250)" filter="url(#shadow)">
+    <rect width="664" height="491" rx="40" fill="#ffffff" fill-opacity=".82"/>
+    <rect x="18" y="18" width="628" height="42" rx="18" fill="#fff" stroke="#dfe2ea"/>
+    <circle cx="41" cy="39" r="5" fill="#ff6d66"/>
+    <circle cx="59" cy="39" r="5" fill="#f6bd4a"/>
+    <circle cx="77" cy="39" r="5" fill="#4fc399"/>
+    <text x="101" y="44" font-family="Arial, sans-serif" font-size="12" fill="#9ca2b3">component-vault / playground</text>
+
+    <g transform="translate(18 76)">
+      <rect width="381" height="175" rx="29" fill="#fbfbfe" stroke="#eceef4"/>
+      <rect x="14" y="13" width="354" height="150" rx="25" fill="#fbfaff"/>
+      <rect x="65" y="49" width="290" height="84" rx="28" fill="#fff" stroke="#dee1e9" transform="rotate(-2 210 90)"/>
+      <rect x="65" y="57" width="290" height="84" rx="28" fill="#fff" stroke="#dee1e9" transform="rotate(1.2 210 95)"/>
+      <rect x="65" y="65" width="290" height="84" rx="28" fill="#fff" stroke="#dee1e9" filter="url(#soft)"/>
+    </g>
+
+    <g transform="translate(-20 79)" filter="url(#soft)">
+      <rect width="200" height="45" rx="16" fill="#fff"/>
+      <path d="M19 16 31 22 22 25 19 34Z" fill="none" stroke="#655df6" stroke-width="1.6"/>
+      <text x="40" y="28" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#2b2d3c">Selected: Card Stack</text>
+    </g>
+
+    <g transform="translate(18 268)">
+      <rect width="184" height="176" rx="28" fill="#fbfbfe" stroke="#e7e9f1"/>
+      <rect x="33" y="27" width="114" height="84" rx="21" fill="#fff" stroke="#655df6"/>
+      <rect x="43" y="39" width="114" height="84" rx="21" fill="#fff" stroke="#e1e4ec"/>
+      <rect x="53" y="51" width="114" height="84" rx="21" fill="#fff" stroke="#e1e4ec"/>
+      <rect x="58" y="48" width="112" height="12" rx="6" fill="#8a81ff" fill-opacity=".45"/>
+    </g>
+
+    <g transform="translate(218 268)">
+      <rect width="184" height="176" rx="28" fill="#fbfbfe" stroke="#e7e9f1"/>
+      <rect x="34" y="18" width="116" height="145" rx="25" fill="#fff" stroke="#e3e5ed"/>
+      <g fill="#d9dde8">
+        <rect x="47" y="31" width="29" height="8" rx="4"/>
+        <rect x="89" y="31" width="20" height="8" rx="4"/>
+        <rect x="121" y="31" width="18" height="8" rx="4"/>
+        <rect x="47" y="65" width="29" height="12" rx="6"/>
+        <rect x="89" y="65" width="20" height="12" rx="6" fill="#e5ecff"/>
+        <rect x="121" y="65" width="18" height="12" rx="6"/>
+        <rect x="47" y="101" width="29" height="12" rx="6"/>
+        <rect x="89" y="101" width="20" height="12" rx="6" fill="#e5ecff"/>
+        <rect x="121" y="101" width="18" height="12" rx="6"/>
+        <rect x="47" y="137" width="29" height="12" rx="6"/>
+        <rect x="89" y="137" width="20" height="12" rx="6" fill="#e5ecff"/>
+      </g>
+    </g>
+
+    <g transform="translate(418 76)">
+      <rect width="228" height="368" rx="29" fill="#fff" stroke="#dfe2ea"/>
+      <text x="21" y="38" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#242635">Properties</text>
+      <rect x="168" y="20" width="41" height="27" rx="13.5" fill="#eff0ff"/>
+      <text x="176" y="38" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#625cf6">Live</text>
+      <g transform="translate(21 65)">
+        <rect width="188" height="66" rx="16" fill="#f6f7fb" stroke="#e1e4ed"/>
+        <text x="13" y="28" font-family="Arial, sans-serif" font-size="11" fill="#969daf">motion</text>
+        <rect x="13" y="44" width="161" height="7" rx="3.5" fill="#fff"/>
+        <rect x="13" y="44" width="62" height="7" rx="3.5" fill="url(#accent)"/>
+      </g>
+      <g transform="translate(21 146)">
+        <rect width="188" height="66" rx="16" fill="#f6f7fb" stroke="#e1e4ed"/>
+        <text x="13" y="28" font-family="Arial, sans-serif" font-size="11" fill="#969daf">depth</text>
+        <rect x="13" y="44" width="161" height="7" rx="3.5" fill="#fff"/>
+        <rect x="13" y="44" width="80" height="7" rx="3.5" fill="url(#accent)"/>
+      </g>
+      <g transform="translate(21 227)">
+        <rect width="188" height="66" rx="16" fill="#f6f7fb" stroke="#e1e4ed"/>
+        <text x="13" y="28" font-family="Arial, sans-serif" font-size="11" fill="#969daf">snap</text>
+        <rect x="13" y="44" width="161" height="7" rx="3.5" fill="#fff"/>
+        <rect x="13" y="44" width="98" height="7" rx="3.5" fill="url(#accent)"/>
+      </g>
+      <g transform="translate(21 308)">
+        <rect width="188" height="47" rx="16" fill="#f6f7fb" stroke="#e1e4ed"/>
+        <text x="13" y="29" font-family="Arial, sans-serif" font-size="11" fill="#969daf">reduced motion</text>
+        <rect x="13" y="35" width="117" height="6" rx="3" fill="url(#accent)"/>
+      </g>
+    </g>
+
+    <g transform="translate(500 392)" filter="url(#soft)">
+      <rect width="184" height="41" rx="16" fill="#191b2a"/>
+      <text x="13" y="26" font-family="Arial, sans-serif" font-size="11" font-weight="700" fill="#fff">Props updated in real time</text>
+    </g>
+  </g>
+</svg>
