@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1292" height="660" viewBox="0 0 1292 660" role="img" aria-labelledby="title desc">
+  <title id="title">Component Vault interface</title>
+  <desc id="desc">Light component library workspace with navigation rail, search, filters and interactive experience cards.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#f8f9ff"/>
+      <stop offset="1" stop-color="#f2f3fb"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#625cf6"/>
+      <stop offset="1" stop-color="#8a67f8"/>
+    </linearGradient>
+    <linearGradient id="cardAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#655df6"/>
+      <stop offset="1" stop-color="#d16ee0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="14" flood-color="#24264b" flood-opacity=".10"/>
+    </filter>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-color="#25294b" flood-opacity=".09"/>
+    </filter>
+  </defs>
+
+  <rect width="1292" height="660" fill="url(#bg)"/>
+  <rect x="0" y="0" width="74" height="660" fill="#fff"/>
+  <path d="M74 0v660" stroke="#e6e8f1"/>
+  <rect x="74" y="0" width="1218" height="55" fill="#fbfbfe"/>
+  <path d="M74 55h1218" stroke="#e6e8f1"/>
+
+  <g transform="translate(14 14)" filter="url(#soft)">
+    <rect width="40" height="40" rx="13" fill="url(#accent)"/>
+    <path d="M20 9.8 29 15v10l-9 5.2L11 25V15l9-5.2Z" fill="none" stroke="#fff" stroke-width="1.8"/>
+    <path d="m11.6 15.3 8.4 4.8 8.4-4.8M20 20.1v9.4" fill="none" stroke="#fff" stroke-width="1.4"/>
+  </g>
+
+  <g fill="none" stroke="#747b91" stroke-width="1.7">
+    <rect x="22" y="100" width="31" height="31" rx="10" fill="#f0f2ff" stroke="#dfe2ff"/>
+    <path d="M31 109h5v5h-5zM40 109h5v5h-5zM31 118h5v5h-5zM40 118h5v5h-5z" stroke="#625cf6"/>
+    <path d="M29 166h17M31 163h13l-1 13H32z"/>
+    <path d="m31 216 6-5 6 5c4 4 1 10-6 14-7-4-10-10-6-14Z"/>
+    <path d="M29 270h5v11h-5zM38 265h5v16h-5zM47 272h5v9h-5z"/>
+    <circle cx="37" cy="326" r="9"/><path d="M37 311v5M37 336v5M22 326h5M47 326h5"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <rect x="98" y="4" width="576" height="39" rx="18" fill="#fff" stroke="#dfe2eb"/>
+    <circle cx="122" cy="23" r="6" fill="none" stroke="#9aa1b4" stroke-width="1.6"/>
+    <path d="m126 27 4 4" stroke="#9aa1b4" stroke-width="1.6"/>
+    <text x="144" y="29" font-family="Arial, sans-serif" font-size="16" fill="#9aa1b4">Search components, categories, or tags...</text>
+    <rect x="613" y="11" width="44" height="24" rx="6" fill="#f7f8fb" stroke="#e1e4ed"/>
+    <text x="623" y="28" font-family="Arial, sans-serif" font-size="11" fill="#6c748a">Ctrl K</text>
+
+    <rect x="685" y="4" width="40" height="39" rx="17" fill="#fff" stroke="#e1e4ed"/>
+    <path d="M698 17h14M698 23h14M698 29h14M702 14v6M708 20v6M704 26v6" stroke="#7d8599" stroke-width="1.3"/>
+
+    <rect x="738" y="3" width="184" height="41" rx="17" fill="#625cf6"/>
+    <text x="758" y="29" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">＋ New Component</text>
+
+    <circle cx="957" cy="24" r="20" fill="#fff" stroke="#e1e4ed"/>
+    <path d="M951 27h12M954 30h6M952 26v-5a5 5 0 0 1 10 0v5" fill="none" stroke="#7c8498" stroke-width="1.4"/>
+    <circle cx="966" cy="14" r="4" fill="#ff6f61"/>
+
+    <circle cx="1008" cy="24" r="20" fill="#fff" stroke="#e1e4ed"/>
+    <circle cx="1008" cy="24" r="13" fill="#ff955f"/>
+    <text x="1003" y="29" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">W</text>
+  </g>
+
+  <g transform="translate(259 92)">
+    <rect width="204" height="26" rx="13" fill="#fff" stroke="#e1e4ed" filter="url(#soft)"/>
+    <text x="15" y="18" font-family="Arial, sans-serif" font-size="11" font-weight="700" letter-spacing="1.8" fill="#625cf6">✦ VISUAL PLAYGROUND</text>
+    <text x="0" y="78" font-family="Arial, sans-serif" font-size="50" font-weight="800" letter-spacing="-2.2" fill="#171a2b">Discover Components</text>
+    <text x="0" y="118" font-family="Arial, sans-serif" font-size="16" fill="#7b8295">Explore, inspect and reuse production-ready interface components.</text>
+  </g>
+
+  <g transform="translate(259 245)" filter="url(#shadow)">
+    <rect width="1033" height="70" rx="28" fill="#fff" fill-opacity=".76" stroke="#fff"/>
+    <rect x="13" y="13" width="52" height="44" rx="16" fill="#fff" stroke="#dfe2eb"/>
+    <text x="29" y="41" font-family="Arial, sans-serif" font-size="15" fill="#35394a">All</text>
+    <g font-family="Arial, sans-serif" font-size="16" fill="#777e92">
+      <text x="87" y="42">Motion Experiences</text>
+      <text x="278" y="42">Data Display</text>
+      <text x="413" y="42">Inputs</text>
+      <text x="500" y="42">Navigation</text>
+      <text x="622" y="42">Layout</text>
+      <text x="711" y="42">Feedback</text>
+    </g>
+    <rect x="811" y="13" width="207" height="44" rx="16" fill="#fff" stroke="#dfe2eb"/>
+    <circle cx="836" cy="35" r="6" fill="none" stroke="#a3aabc" stroke-width="1.5"/>
+    <path d="m840 39 4 4" stroke="#a3aabc" stroke-width="1.5"/>
+    <text x="856" y="41" font-family="Arial, sans-serif" font-size="14" fill="#b1b6c5">Search library...</text>
+  </g>
+
+  <text x="259" y="351" font-family="Arial, sans-serif" font-size="14" fill="#72798e">28 results</text>
+
+  <g transform="translate(259 375)" filter="url(#shadow)">
+    <rect width="1033" height="315" rx="28" fill="#fff" stroke="#e5e7ef"/>
+    <rect x="21" y="20" width="181" height="29" rx="15" fill="#f3eeff"/>
+    <text x="34" y="40" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#672bc1">✦ Emerging 2026</text>
+    <text x="21" y="89" font-family="Arial, sans-serif" font-size="31" font-weight="800" fill="#171a2b">Interactive Experiences</text>
+    <text x="21" y="121" font-family="Arial, sans-serif" font-size="14" fill="#747c91">Motion, cursor, morph and spatial patterns with contained live previews.</text>
+
+    <g transform="translate(21 149)">
+      <rect width="300" height="145" rx="24" fill="#f3f4f9" stroke="#e2e5ed"/>
+      <rect x="12" y="12" width="276" height="121" rx="20" fill="#151725"/>
+      <circle cx="196" cy="64" r="41" fill="#6a60f4" fill-opacity=".34"/>
+      <circle cx="196" cy="64" r="20" fill="none" stroke="#fff" stroke-opacity=".65"/>
+      <text x="29" y="38" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.5" fill="#fff" fill-opacity=".48">CURSOR LENS</text>
+      <text x="29" y="91" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#fff">Reveal underneath.</text>
+    </g>
+
+    <g transform="translate(341 149)">
+      <rect width="300" height="145" rx="24" fill="#f3f4f9" stroke="#e2e5ed"/>
+      <rect x="12" y="12" width="276" height="121" rx="20" fill="#f7f3e9"/>
+      <text x="29" y="38" font-family="Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="1.4" fill="#8a8373">VARIABLE TYPE</text>
+      <text x="29" y="94" font-family="Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="-2" fill="#171a2b">Shape the voice.</text>
+      <rect x="29" y="110" width="223" height="5" rx="2.5" fill="#ddd6c7"/>
+      <rect x="29" y="110" width="142" height="5" rx="2.5" fill="#171a2b"/>
+    </g>
+
+    <g transform="translate(661 149)">
+      <rect width="351" height="145" rx="24" fill="#f3f4f9" stroke="#e2e5ed"/>
+      <rect x="12" y="12" width="327" height="121" rx="20" fill="#e9fbf4"/>
+      <rect x="91" y="47" width="168" height="54" rx="22" fill="#171a2b"/>
+      <circle cx="119" cy="52" r="31" fill="#51c89b"/>
+      <circle cx="231" cy="98" r="34" fill="#625cf6"/>
+      <text x="133" y="80" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="#fff">Liquid morph CTA</text>
+    </g>
+  </g>
+</svg>
