@@ -1,0 +1,159 @@
+.projectSceneSpotlight {
+  background:
+    radial-gradient(circle at 72% 24%, rgba(99, 102, 241, 0.14), transparent 28%),
+    radial-gradient(circle at 25% 78%, rgba(94, 234, 212, 0.055), transparent 26%),
+    #020202 !important;
+}
+
+.projectSceneSpotlight::after {
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0%, rgba(0, 0, 0, 0.16) 46%, rgba(0, 0, 0, 0.08) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, rgba(0, 0, 0, 0.12) 58%, rgba(0, 0, 0, 0.76) 100%) !important;
+}
+
+.projectSceneSpotlight .projectImageButton {
+  border-color: rgba(122, 116, 255, 0.26);
+  background: #f5f6fb;
+  box-shadow:
+    0 44px 130px rgba(0, 0, 0, 0.64),
+    0 0 0 1px rgba(122, 116, 255, 0.05);
+}
+
+.projectSceneSpotlight.is-reel-active .projectImageButton {
+  border-color: rgba(139, 132, 255, 0.46);
+  box-shadow:
+    0 48px 140px rgba(0, 0, 0, 0.66),
+    0 0 70px rgba(99, 102, 241, 0.08);
+}
+
+.projectSceneSpotlight .projectImageButton img,
+.projectSceneSpotlight.is-reel-active .projectImageButton img {
+  object-fit: cover;
+  object-position: top left;
+  filter: saturate(0.98) contrast(1.01) brightness(0.94);
+}
+
+.projectSceneSpotlight .projectLabel {
+  width: min(760px, 68vw);
+}
+
+.projectSceneSpotlight .projectLabel h2 {
+  font-size: clamp(4rem, 8vw, 8.2rem);
+}
+
+.projectSceneSpotlight .componentVaultKicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  padding: 7px 10px;
+  border: 1px solid rgba(139, 132, 255, 0.34);
+  border-radius: 999px;
+  color: #b9b6ff;
+  background: rgba(99, 102, 241, 0.1);
+  letter-spacing: 0.1em;
+}
+
+.projectSceneSpotlight .projectLabel::after {
+  display: none;
+}
+
+.componentVaultActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.componentVaultActions a {
+  display: inline-flex;
+  min-height: 42px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(242, 240, 234, 0.92);
+  background: rgba(7, 7, 9, 0.54);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(14px);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.componentVaultActions a:first-child {
+  border-color: rgba(139, 132, 255, 0.44);
+  background: rgba(99, 102, 241, 0.2);
+}
+
+.componentVaultActions a:hover,
+.componentVaultActions a:focus-visible {
+  transform: translateY(-2px);
+  border-color: rgba(242, 240, 234, 0.46);
+  background: rgba(242, 240, 234, 0.1);
+}
+
+.componentVaultStamp {
+  position: absolute;
+  top: clamp(92px, 10vw, 132px);
+  right: clamp(24px, 6vw, 96px);
+  z-index: 4;
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+  color: rgba(242, 240, 234, 0.54);
+  pointer-events: none;
+}
+
+.componentVaultStamp span {
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.componentVaultStamp b {
+  color: rgba(185, 182, 255, 0.94);
+  font-family: 'Sora', Arial, sans-serif;
+  font-size: clamp(2.2rem, 4vw, 4.8rem);
+  font-weight: 600;
+  letter-spacing: -0.08em;
+}
+
+@media (max-width: 720px) {
+  .projectSceneSpotlight .projectLabel {
+    width: 100%;
+  }
+
+  .projectSceneSpotlight .projectImageButton img,
+  .projectSceneSpotlight.is-reel-active .projectImageButton img {
+    object-fit: contain;
+  }
+
+  .componentVaultStamp {
+    top: 92px;
+    right: 22px;
+  }
+
+  .componentVaultStamp span {
+    display: none;
+  }
+
+  .componentVaultActions {
+    gap: 8px;
+  }
+
+  .componentVaultActions a {
+    min-height: 40px;
+    font-size: 0.66rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .componentVaultActions a {
+    transition: none;
+  }
+}
