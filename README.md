@@ -1,91 +1,81 @@
-# WESSYU-ARQUIVO
+# WESSYU — ARQUIVO
 
 <p align="center">
   <img src="./assets/readme-preview.svg" alt="Preview do WESSYU Arquivo" width="100%" />
 </p>
 
-Portfólio pessoal desenvolvido para apresentar projetos selecionados construídos durante minha transição do design para o desenvolvimento front-end e full stack.
+<p align="center"><strong>Portfólio editorial de produto, front-end e design com projetos apresentados como estudos de caso.</strong></p>
 
-**Acesso:** (https://wessyu-arquivo.vercel.app/)
+<p align="center"><a href="https://wessyu-arquivo.vercel.app/">Abrir portfólio</a> · <a href="https://github.com/WessYu">GitHub</a> · <a href="https://www.linkedin.com/in/wesley-santos-cruz-b57589213/">LinkedIn</a></p>
+
+## Demo
+
+<p align="center"><img src="https://raw.githubusercontent.com/WessYu/WessYu/main/readme-assets/WESSYU-ARQUIVO-demo.gif" alt="Fluxo animado do WESSYU Arquivo" width="720" /></p>
 
 ## Sobre
 
-Este projeto foi pensado como um arquivo de trabalhos, não como um currículo tradicional.
+O **WESSYU Arquivo** não foi pensado como um currículo em formato de site. Ele funciona como um arquivo de trabalhos selecionados: cada projeto apresenta contexto, problema, decisões, implementação, aprendizados e telas reais.
 
-Cada projeto apresenta contexto, problema, solução, decisões de implementação e resultado final. A navegação principal funciona como um reel editorial, enquanto os estudos de caso mostram o raciocínio de produto e as decisões técnicas por trás de cada trabalho.
+A experiência principal utiliza um **project reel** em tela cheia, navegação por scroll/setas e abertura de estudos de caso. O objetivo é mostrar não apenas o resultado visual, mas como cada produto foi pensado e construído.
 
 ## Projeto em destaque
 
 ### Component Vault
-Workspace full stack para criar, organizar, testar e reutilizar componentes de interface. Inclui autenticação, contas, favoritos por usuário, painel administrativo, edição persistente, coleções, Convex e experiências de motion/interação.
 
-- Projeto: https://component-vault-dun.vercel.app
-- Código: https://github.com/WessYu/component-vault
+Workspace full stack para criar, organizar, editar e reutilizar componentes de interface, com contas, favoritos, administração, Convex e experiências de motion.
 
-## Projetos Selecionados
+**[Ver produto](https://component-vault-dun.vercel.app/)** · **[Ver código](https://github.com/WessYu/component-vault)**
 
-### Receitas
-Plataforma full stack de receitas com autenticação, favoritos, perfil de usuário e painel administrativo.
+## Projetos selecionados
 
-### DevMatch
-Produto para conexão entre desenvolvedores e contratantes, com perfis por papel, matches, feed e chat contextual.
-
-### Logic Quest
-Experiência de aprendizado inspirada em ferramentas de desenvolvimento para ensino de lógica de programação.
-
-### HELENA
-Sistema jurídico com formulários, protocolos, contatos e painel administrativo.
-
-### Differenza
-Redesign conceitual para salão e barbearia com foco em experiência digital premium.
+- **Component Vault** — developer tool full stack para biblioteca e experimentação de UI;
+- **Receitas** — aplicação full stack com autenticação, favoritos e painel administrativo;
+- **DevMatch** — plataforma de recrutamento técnico com compatibilidade, matches e chat;
+- **Logic Quest** — produto educacional com módulos, checkpoints, XP e PWA;
+- **HELENA** — experiência jurídica com formulários, protocolos e gestão interna;
+- **Differenza** — redesign com foco em hierarquia, experiência premium e agendamento.
 
 ## Stack
 
-**Front-end**
+<p>
+  <img src="https://img.shields.io/badge/React-0A0A0A?style=flat-square&logo=react&logoColor=F2F0EA" />
+  <img src="https://img.shields.io/badge/TypeScript-0A0A0A?style=flat-square&logo=typescript&logoColor=F2F0EA" />
+  <img src="https://img.shields.io/badge/JavaScript-0A0A0A?style=flat-square&logo=javascript&logoColor=F2F0EA" />
+  <img src="https://img.shields.io/badge/Next.js-0A0A0A?style=flat-square&logo=nextdotjs&logoColor=F2F0EA" />
+  <img src="https://img.shields.io/badge/HTML5-0A0A0A?style=flat-square&logo=html5&logoColor=F2F0EA" />
+  <img src="https://img.shields.io/badge/CSS3-0A0A0A?style=flat-square&logo=css3&logoColor=F2F0EA" />
+  <img src="https://img.shields.io/badge/Vite-0A0A0A?style=flat-square&logo=vite&logoColor=F2F0EA" />
+</p>
 
-![React](https://img.shields.io/badge/React-0A0A0A?style=flat-square&logo=react&logoColor=F2F0EA)
-![TypeScript](https://img.shields.io/badge/TypeScript-0A0A0A?style=flat-square&logo=typescript&logoColor=F2F0EA)
-![JavaScript](https://img.shields.io/badge/JavaScript-0A0A0A?style=flat-square&logo=javascript&logoColor=F2F0EA)
-![Next.js](https://img.shields.io/badge/Next.js-0A0A0A?style=flat-square&logo=nextdotjs&logoColor=F2F0EA)
+## Experiência
 
-**Interface**
+- reel de projetos em tela cheia;
+- scroll snap e navegação por setas;
+- cursor contextual no desktop;
+- parallax leve e reveal progressivo;
+- estudos de caso com problema, decisões, implementação e aprendizados;
+- galeria de telas;
+- seção de evolução e stack;
+- experiência mobile própria;
+- metadados Open Graph e SEO apontando para o domínio atual.
 
-![HTML5](https://img.shields.io/badge/HTML5-0A0A0A?style=flat-square&logo=html5&logoColor=F2F0EA)
-![CSS3](https://img.shields.io/badge/CSS3-0A0A0A?style=flat-square&logo=css3&logoColor=F2F0EA)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-0A0A0A?style=flat-square&logo=tailwindcss&logoColor=F2F0EA)
-
-**Back-end e dados**
-
-![Node.js](https://img.shields.io/badge/Node.js-0A0A0A?style=flat-square&logo=nodedotjs&logoColor=F2F0EA)
-![Convex](https://img.shields.io/badge/Convex-0A0A0A?style=flat-square&logo=convex&logoColor=F2F0EA)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-0A0A0A?style=flat-square&logo=postgresql&logoColor=F2F0EA)
-![Prisma](https://img.shields.io/badge/Prisma-0A0A0A?style=flat-square&logo=prisma&logoColor=F2F0EA)
-
-**Ferramentas**
-
-![Vite](https://img.shields.io/badge/Vite-0A0A0A?style=flat-square&logo=vite&logoColor=F2F0EA)
-![Git](https://img.shields.io/badge/Git-0A0A0A?style=flat-square&logo=git&logoColor=F2F0EA)
-![GitHub](https://img.shields.io/badge/GitHub-0A0A0A?style=flat-square&logo=github&logoColor=F2F0EA)
-![Figma](https://img.shields.io/badge/Figma-0A0A0A?style=flat-square&logo=figma&logoColor=F2F0EA)
-
-## Executando Localmente
+## Executando localmente
 
 ```bash
+git clone https://github.com/WessYu/WESSYU-ARQUIVO.git
+cd WESSYU-ARQUIVO
 npm install
 npm run dev
 ```
 
-## Build
+Build de produção:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-## Contato
+## Autor
 
-GitHub: https://github.com/WessYu
-
-LinkedIn: https://linkedin.com/in/wesleycruz
-
-Email: wess.c@proton.me
+**Wesley Cruz** — Front-End Developer & Designer  
+[GitHub](https://github.com/WessYu) · [LinkedIn](https://www.linkedin.com/in/wesley-santos-cruz-b57589213/) · [E-mail](mailto:wess.c@proton.me)
