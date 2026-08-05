@@ -43,12 +43,12 @@ export function mountComponentVaultSpotlight() {
         width="1292"
         height="660"
         decoding="async"
-        fetchpriority="high"
+        loading="lazy"
       />
     </button>
 
     <div class="projectLabel componentVaultLabel is-visible" data-reveal>
-      <span class="componentVaultKicker">FEATURED / 2026</span>
+      <span class="componentVaultKicker">EXPERIMENTO / 2026</span>
       <h2>Component Vault</h2>
       <p>Workspace full stack para criar, organizar, testar e salvar componentes de interface, com contas, favoritos, administração, Convex e experiências de motion.</p>
       <div class="componentVaultActions">
@@ -58,7 +58,7 @@ export function mountComponentVaultSpotlight() {
     </div>
 
     <div class="componentVaultStamp" aria-hidden="true">
-      <span>FEATURED PROJECT</span>
+      <span>EXPERIMENTO</span>
       <b>CV</b>
     </div>
   `
@@ -67,7 +67,7 @@ export function mountComponentVaultSpotlight() {
     window.open(COMPONENT_VAULT_DEMO, '_blank', 'noopener,noreferrer')
   })
 
-  reel.prepend(scene)
+  reel.append(scene)
 
   window.requestAnimationFrame(() => {
     window.requestAnimationFrame(() => updateGeneratedReelDetails(scene))
