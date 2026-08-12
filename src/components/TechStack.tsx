@@ -19,6 +19,8 @@ const TECHNOLOGIES: Technology[] = [
   { name: 'Node.js', category: 'Back-end', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
   { name: 'Prisma', category: 'Dados', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg' },
   { name: 'PostgreSQL', category: 'Dados', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
+  { name: 'Convex', category: 'Back-end', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/database/database-original.svg' },
+  { name: 'Playwright', category: 'Qualidade', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg' },
   { name: 'Git', category: 'Ferramentas', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
   { name: 'GitHub', category: 'Ferramentas', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
   { name: 'Figma', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg' },
