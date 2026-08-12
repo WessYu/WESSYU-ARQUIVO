@@ -4,7 +4,7 @@ const COMPONENT_VAULT_REPOSITORY = 'https://github.com/WessYu/component-vault'
 function updateGeneratedReelDetails(scene: HTMLElement) {
   const topMeta = scene.querySelector<HTMLElement>('.projectReelTopMeta')
   if (topMeta) {
-    topMeta.innerHTML = '<em>2026</em><span>DEV TOOL / DESIGN SYSTEM</span><small>PRODUTO + FRONT-END + BACK-END</small>'
+    topMeta.innerHTML = '<em>2026</em><span>DEV TOOL / COMPONENT GOVERNANCE</span><small>FRONT-END + BACK-END + TOOLING</small>'
   }
 
   const sideInfo = scene.querySelector<HTMLElement>('.projectReelSideInfo')
@@ -12,11 +12,11 @@ function updateGeneratedReelDetails(scene: HTMLElement) {
     sideInfo.innerHTML = `
       <p>DESTAQUES</p>
       <ol>
-        <li><b>01</b><span>CONVEX BACKEND</span></li>
-        <li><b>02</b><span>CONTAS + FAVORITOS</span></li>
-        <li><b>03</b><span>MOTION EXPERIENCES</span></li>
+        <li><b>01</b><span>COMPONENT GOVERNANCE</span></li>
+        <li><b>02</b><span>NPX CLI / DEVELOPER TOOLING</span></li>
+        <li><b>03</b><span>CONVEX BACKEND + AUTH</span></li>
       </ol>
-      <div><span>NEXT.JS</span><span>TYPESCRIPT</span><span>CONVEX</span><span>FRAMER MOTION</span></div>
+      <div><span>NEXT.JS</span><span>TYPESCRIPT</span><span>CONVEX</span><span>NPX</span></div>
     `
   }
 }
@@ -39,7 +39,7 @@ export function mountComponentVaultSpotlight() {
     <button class="projectImageButton componentVaultImageButton" type="button" aria-label="Abrir Component Vault">
       <img
         src="/projects/component-vault/overview.svg"
-        alt="Component Vault com biblioteca de componentes, experiências interativas e ferramentas de workspace"
+        alt="Component Vault com biblioteca de componentes, governança, experiências interativas e ferramentas de desenvolvimento"
         width="1292"
         height="660"
         decoding="async"
@@ -48,9 +48,9 @@ export function mountComponentVaultSpotlight() {
     </button>
 
     <div class="projectLabel componentVaultLabel is-visible" data-reveal>
-      <span class="componentVaultKicker">EXPERIMENTO / 2026</span>
+      <span class="componentVaultKicker">DEV TOOL / 2026</span>
       <h2>Component Vault</h2>
-      <p>Workspace full stack para criar, organizar, testar e salvar componentes de interface, com contas, favoritos, administração, Convex e experiências de motion.</p>
+      <p>Ferramenta full stack para criar, organizar, reutilizar e governar componentes de interface, com autenticação, administração, Convex e uma CLI executável via NPX.</p>
       <div class="componentVaultActions">
         <a href="${COMPONENT_VAULT_DEMO}" target="_blank" rel="noreferrer">Ver produto ↗</a>
         <a href="${COMPONENT_VAULT_REPOSITORY}" target="_blank" rel="noreferrer">Ver código ↗</a>
@@ -58,7 +58,7 @@ export function mountComponentVaultSpotlight() {
     </div>
 
     <div class="componentVaultStamp" aria-hidden="true">
-      <span>EXPERIMENTO</span>
+      <span>DEV TOOL</span>
       <b>CV</b>
     </div>
   `
