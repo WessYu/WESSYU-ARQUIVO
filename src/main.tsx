@@ -13,6 +13,7 @@ import { ErrorBoundary } from './components/ErrorBoundary'
 import { TechStack } from './components/TechStack'
 import { mountComponentVaultSpotlight } from './componentVaultSpotlight'
 import { initProjectReel } from './projectReel'
+import { applyContentEnhancements } from './contentEnhancements'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 const startEnhancements = () => {
   mountComponentVaultSpotlight()
   initProjectReel()
+  applyContentEnhancements()
 }
 
 if ('requestIdleCallback' in window) {
