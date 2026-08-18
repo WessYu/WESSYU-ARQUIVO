@@ -1,10 +1,11 @@
 const COMPONENT_VAULT_DEMO = 'https://component-vault-dun.vercel.app'
 const COMPONENT_VAULT_REPOSITORY = 'https://github.com/WessYu/component-vault'
+const COMPONENT_VAULT_NPM = 'https://www.npmjs.com/package/@wess2001/component-vault'
 
 function updateGeneratedReelDetails(scene: HTMLElement) {
   const topMeta = scene.querySelector<HTMLElement>('.projectReelTopMeta')
   if (topMeta) {
-    topMeta.innerHTML = '<em>2026</em><span>DEV TOOL / COMPONENT GOVERNANCE</span><small>FRONT-END + BACK-END + TOOLING</small>'
+    topMeta.innerHTML = '<em>2026</em><span>DEV TOOL / COMPONENT GOVERNANCE</span><small>AST ANALYSIS + CLI + AUTOMATION</small>'
   }
 
   const sideInfo = scene.querySelector<HTMLElement>('.projectReelSideInfo')
@@ -12,9 +13,9 @@ function updateGeneratedReelDetails(scene: HTMLElement) {
     sideInfo.innerHTML = `
       <p>DESTAQUES</p>
       <ol>
-        <li><b>01</b><span>COMPONENT GOVERNANCE</span></li>
-        <li><b>02</b><span>NPX CLI / DEVELOPER TOOLING</span></li>
-        <li><b>03</b><span>CONVEX BACKEND + AUTH</span></li>
+        <li><b>01</b><span>AST-BASED GOVERNANCE</span></li>
+        <li><b>02</b><span>NPX CLI + AUTOFIX</span></li>
+        <li><b>03</b><span>SEMANTIC RULES + CI</span></li>
       </ol>
       <div><span>NEXT.JS</span><span>TYPESCRIPT</span><span>CONVEX</span><span>NPX</span></div>
     `
@@ -39,7 +40,7 @@ export function mountComponentVaultSpotlight() {
     <button class="projectImageButton componentVaultImageButton" type="button" aria-label="Abrir Component Vault">
       <img
         src="/projects/component-vault/overview.svg"
-        alt="Component Vault com biblioteca de componentes, governança, experiências interativas e ferramentas de desenvolvimento"
+        alt="Component Vault com workspace de componentes, governança, análise e developer tooling"
         width="1292"
         height="660"
         decoding="async"
@@ -48,17 +49,19 @@ export function mountComponentVaultSpotlight() {
     </button>
 
     <div class="projectLabel componentVaultLabel is-visible" data-reveal>
-      <span class="componentVaultKicker">DEV TOOL / 2026</span>
+      <span class="componentVaultKicker">DEV TOOL / COMPONENT GOVERNANCE</span>
       <h2>Component Vault</h2>
-      <p>Ferramenta full stack para criar, organizar, reutilizar e governar componentes de interface, com autenticação, administração, Convex e uma CLI executável via NPX.</p>
+      <p>Uma ferramenta de governança para ecossistemas Front-End. O Guard analisa código via TypeScript AST, transforma regras de design system em validações executáveis e ajuda a controlar componentes, imports e padrões sem depender de revisão manual.</p>
+      <p>O projeto inclui uma CLI distribuída via NPX com <strong>scan, analyze, check, baseline, PR reporting e autofix</strong>, além de estratégias para adoção gradual em codebases existentes.</p>
       <div class="componentVaultActions">
         <a href="${COMPONENT_VAULT_DEMO}" target="_blank" rel="noreferrer">Ver produto ↗</a>
+        <a href="${COMPONENT_VAULT_NPM}" target="_blank" rel="noreferrer">Ver CLI / npm ↗</a>
         <a href="${COMPONENT_VAULT_REPOSITORY}" target="_blank" rel="noreferrer">Ver código ↗</a>
       </div>
     </div>
 
     <div class="componentVaultStamp" aria-hidden="true">
-      <span>DEV TOOL</span>
+      <span>DEVELOPER TOOLING</span>
       <b>CV</b>
     </div>
   `
