@@ -4,9 +4,7 @@ const COMPONENT_VAULT_NPM = 'https://www.npmjs.com/package/@wess2001/component-v
 
 function updateGeneratedReelDetails(scene: HTMLElement) {
   const topMeta = scene.querySelector<HTMLElement>('.projectReelTopMeta')
-  if (topMeta) {
-    topMeta.innerHTML = '<em>2026</em><span>DEV TOOL / COMPONENT GOVERNANCE</span><small>AST ANALYSIS + CLI + AUTOMATION</small>'
-  }
+  if (topMeta) topMeta.innerHTML = '<em>2026</em><span>DEV TOOL / COMPONENT GOVERNANCE</span><small>AST ANALYSIS + CLI + AUTOMATION</small>'
 
   const sideInfo = scene.querySelector<HTMLElement>('.projectReelSideInfo')
   if (sideInfo) {
@@ -38,16 +36,8 @@ export function mountComponentVaultSpotlight() {
 
   scene.innerHTML = `
     <button class="projectImageButton componentVaultImageButton" type="button" aria-label="Abrir Component Vault">
-      <img
-        src="/projects/component-vault/overview.svg"
-        alt="Component Vault com workspace de componentes, governança, análise e developer tooling"
-        width="1292"
-        height="660"
-        decoding="async"
-        loading="lazy"
-      />
+      <img src="/projects/component-vault/overview.svg" alt="Component Vault com workspace de componentes, governança, análise e developer tooling" width="1292" height="660" decoding="async" loading="lazy" />
     </button>
-
     <div class="projectLabel componentVaultLabel is-visible" data-reveal>
       <span class="componentVaultKicker">DEV TOOL / COMPONENT GOVERNANCE</span>
       <h2>Component Vault</h2>
@@ -59,20 +49,14 @@ export function mountComponentVaultSpotlight() {
         <a href="${COMPONENT_VAULT_REPOSITORY}" target="_blank" rel="noreferrer">Ver código ↗</a>
       </div>
     </div>
-
-    <div class="componentVaultStamp" aria-hidden="true">
-      <span>DEVELOPER TOOLING</span>
-      <b>CV</b>
-    </div>
+    <div class="componentVaultStamp" aria-hidden="true"><span>DEVELOPER TOOLING</span><b>CV</b></div>
   `
 
-  scene.querySelector<HTMLButtonElement>('.componentVaultImageButton')?.addEventListener('click', () => {
-    window.open(COMPONENT_VAULT_DEMO, '_blank', 'noopener,noreferrer')
-  })
+  scene.querySelector<HTMLButtonElement>('.componentVaultImageButton')?.addEventListener('click', () => window.open(COMPONENT_VAULT_DEMO, '_blank', 'noopener,noreferrer'))
 
-  reel.append(scene)
+  const firstProject = reel.querySelector<HTMLElement>('.projectScene')
+  if (firstProject) reel.insertBefore(scene, firstProject)
+  else reel.append(scene)
 
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(() => updateGeneratedReelDetails(scene))
-  })
+  window.requestAnimationFrame(() => window.requestAnimationFrame(() => updateGeneratedReelDetails(scene)))
 }
