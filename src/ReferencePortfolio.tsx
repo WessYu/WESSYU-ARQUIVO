@@ -1,46 +1,66 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import './reference-portfolio.css'
 
-type Tile = {
-  src: string
+type Project = {
+  number: string
+  title: string
+  image: string
   alt: string
-  className: string
+  href: string
 }
 
-const tiles: Tile[] = [
-  { src: '/projects/component-vault/landing.svg', alt: 'Component Vault interface', className: 'tile-a' },
-  { src: '/projects/devmatch/home.webp', alt: 'DevMatch interface', className: 'tile-b' },
-  { src: '/projects/receitas/home.webp', alt: 'Receitas interface', className: 'tile-c' },
-  { src: '/projects/differenza/after.webp', alt: 'Differenza redesign', className: 'tile-d' },
-  { src: '/projects/devmatch/feed.webp', alt: 'DevMatch feed interface', className: 'tile-e' },
+const projects: Project[] = [
+  {
+    number: '01',
+    title: 'Component Vault',
+    image: '/projects/component-vault/landing.svg',
+    alt: 'Component Vault interface',
+    href: 'https://github.com/WessYu/component-vault',
+  },
+  {
+    number: '02',
+    title: 'DevMatch',
+    image: '/projects/devmatch/home.webp',
+    alt: 'DevMatch interface',
+    href: 'https://devmatch-neon.vercel.app',
+  },
+  {
+    number: '03',
+    title: 'Receitas',
+    image: '/projects/receitas/home.webp',
+    alt: 'Receitas interface',
+    href: 'https://receitas-delta-eight.vercel.app',
+  },
+  {
+    number: '04',
+    title: 'Differenza',
+    image: '/projects/differenza/after.webp',
+    alt: 'Differenza redesign',
+    href: 'https://wessyu.github.io/differenza-redesign/',
+  },
 ]
 
-const scenes = [
-  { id: 'intro', label: '01' },
-  { id: 'work', label: '02' },
-  { id: 'design', label: '03' },
-  { id: 'thinking', label: '04' },
-  { id: 'contact', label: '05' },
-]
+const scenes = ['intro', 'experience', 'design', 'thinking', 'contact']
 
-function useSceneProgress() {
+function useActiveScene() {
   const [active, setActive] = useState(0)
 
   useEffect(() => {
     const elements = scenes
-      .map(({ id }) => document.getElementById(id))
-      .filter(Boolean) as HTMLElement[]
+      .map((id) => document.getElementById(id))
+      .filter((element): element is HTMLElement => Boolean(element))
 
     const observer = new IntersectionObserver(
       (entries) => {
-        const visible = entries
+        const current = entries
           .filter((entry) => entry.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
-        if (!visible) return
-        const index = elements.indexOf(visible.target as HTMLElement)
+
+        if (!current) return
+        const index = elements.indexOf(current.target as HTMLElement)
         if (index >= 0) setActive(index)
       },
-      { threshold: [0.45, 0.7] },
+      { threshold: [0.5, 0.7] },
     )
 
     elements.forEach((element) => observer.observe(element))
@@ -50,45 +70,24 @@ function useSceneProgress() {
   return active
 }
 
-function FloatingTile({ tile, speed = 1 }: { tile: Tile; speed?: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const element = ref.current
-    if (!element) return
-
-    let frame = 0
-    const onPointerMove = (event: PointerEvent) => {
-      cancelAnimationFrame(frame)
-      frame = requestAnimationFrame(() => {
-        const x = (event.clientX / window.innerWidth - 0.5) * 2
-        const y = (event.clientY / window.innerHeight - 0.5) * 2
-        element.style.setProperty('--mx', `${x * 8 * speed}px`)
-        element.style.setProperty('--my', `${y * 8 * speed}px`)
-      })
-    }
-
-    window.addEventListener('pointermove', onPointerMove, { passive: true })
-    return () => {
-      cancelAnimationFrame(frame)
-      window.removeEventListener('pointermove', onPointerMove)
-    }
-  }, [speed])
-
+function ProjectRail({ active }: { active: number }) {
   return (
-    <div ref={ref} className={`ref-tile ${tile.className}`}>
-      <img src={tile.src} alt={tile.alt} loading="lazy" />
-    </div>
-  )
-}
-
-function ProjectRail() {
-  return (
-    <div className="ref-rail" aria-label="Projetos selecionados">
-      {tiles.slice(0, 4).map((tile, index) => (
-        <a className="ref-rail-card" href={['https://github.com/WessYu/component-vault', 'https://devmatch-neon.vercel.app', 'https://receitas-delta-eight.vercel.app', 'https://wessyu.github.io/differenza-redesign/'][index]} target="_blank" rel="noreferrer" key={tile.src}>
-          <img src={tile.src} alt="" aria-hidden="true" />
-          <span>{String(index + 1).padStart(2, '0')}</span>
+    <div className="ref-project-rail" aria-label="Selected projects">
+      {projects.map((project, index) => (
+        <a
+          className={`ref-project-card ${active === index ? 'is-featured' : ''}`}
+          href={project.href}
+          target="_blank"
+          rel="noreferrer"
+          key={project.number}
+          aria-label={`Abrir projeto ${project.title}`}
+        >
+          <img src={project.image} alt="" aria-hidden="true" loading={index === 0 ? 'eager' : 'lazy'} />
+          <span className="ref-project-card-shade" aria-hidden="true" />
+          <span className="ref-project-card-meta">
+            <b>{project.number}</b>
+            <strong>{project.title}</strong>
+          </span>
         </a>
       ))}
     </div>
@@ -96,69 +95,79 @@ function ProjectRail() {
 }
 
 export default function ReferencePortfolio() {
-  const active = useSceneProgress()
+  const active = useActiveScene()
 
   return (
     <main className="ref-site">
       <div className="ref-grain" aria-hidden="true" />
+      <div className="ref-top-plane" aria-hidden="true" />
 
-      <header className="ref-header">
-        <a href="#intro" className="ref-mark" aria-label="Wess — início">WESS<span>®</span></a>
-        <div className="ref-header-center">Independent front-end developer</div>
-        <div className="ref-header-right"><span>Brazil</span><span>Available for work</span><i aria-hidden="true" /></div>
-      </header>
+      <a className="ref-corner-mark" href="#intro" aria-label="Wess — início">WESS<span>®</span></a>
+      <div className="ref-corner-status"><i aria-hidden="true" /> available for work</div>
 
-      <aside className="ref-progress" aria-label="Navegação das seções">
+      <div className="ref-scene-counter" aria-hidden="true">
         <span>{String(active + 1).padStart(2, '0')}</span>
-        <div>{scenes.map((scene, index) => <a key={scene.id} className={active === index ? 'is-active' : ''} href={`#${scene.id}`} aria-label={`Ir para seção ${scene.label}`}><i /></a>)}</div>
-        <span>{String(scenes.length).padStart(2, '0')}</span>
-      </aside>
+        <span>05</span>
+      </div>
 
-      <section className="ref-scene ref-hero-scene" id="intro">
-        <div className="ref-scene-meta"><span>Portfolio / 2026</span><span>001 — 005</span></div>
-        <div className="ref-hero-copy">
-          <span className="ref-hero-kicker">Wess — digital craft</span>
-          <h1><span>STU<span className="ref-cut">D</span>IO</span></h1>
-          <div className="ref-hero-art"><img src="/projects/component-vault/landing.svg" alt="Component Vault" /></div>
-          <span className="ref-hero-number">001</span>
-        </div>
-        <div className="ref-hero-bottom">
-          <p>Construindo experiências digitais<br />para marcas, produtos e pessoas.</p>
-          <a href="#work">Explore <span>↓</span></a>
+      <section className="ref-scene ref-scene-intro" id="intro">
+        <div className="ref-scene-inner">
+          <span className="ref-eyebrow">Independent front-end developer</span>
+          <div className="ref-hero-word" aria-label="Wess Studio">
+            <span>STU</span><span className="ref-hero-image"><img src="/projects/component-vault/landing.svg" alt="Component Vault" /></span><span>DIO</span>
+          </div>
+          <div className="ref-hero-foot">
+            <span>Digital craft / 2026</span>
+            <a href="#experience">Scroll to explore <b>↓</b></a>
+          </div>
         </div>
       </section>
 
-      <section className="ref-scene ref-work-scene" id="work">
-        <div className="ref-scene-meta"><span>02 / Selected work</span><span>Scroll — drag — explore</span></div>
-        <div className="ref-statement ref-statement-wide">Criando <em>experiências</em> digitais de alto impacto para marcas e produtos extraordinários.</div>
-        <ProjectRail />
-        <div className="ref-scene-caption"><span>Selected work</span><span>Component Vault / DevMatch / Receitas / Differenza</span></div>
+      <section className="ref-scene ref-scene-experience" id="experience">
+        <div className="ref-scene-inner">
+          <span className="ref-eyebrow">01 — Experience</span>
+          <h1 className="ref-scene-title">Criando <em>experiências</em> digitais de alto impacto para marcas e produtos extraordinários.</h1>
+          <span className="ref-side-note">Design / Interface / Engineering</span>
+        </div>
       </section>
 
-      <section className="ref-scene ref-design-scene" id="design">
-        <div className="ref-scene-meta"><span>03 / Design</span><span>Direction / Interface / Motion</span></div>
-        <div className="ref-statement ref-statement-design">Designs criados sob medida para o seu negócio, <em>mas sem limites para o seu impacto.</em></div>
-        <FloatingTile tile={tiles[1]} speed={0.7} />
-        <FloatingTile tile={tiles[2]} speed={1} />
-        <FloatingTile tile={tiles[3]} speed={1.3} />
-        <div className="ref-design-index">02<br />03<br />04</div>
+      <section className="ref-scene ref-scene-design" id="design">
+        <div className="ref-scene-inner">
+          <span className="ref-eyebrow">02 — Design</span>
+          <div className="ref-collage ref-collage-design" aria-hidden="true">
+            <img className="ref-collage-image image-one" src="/projects/devmatch/home.webp" alt="" />
+            <img className="ref-collage-image image-two" src="/projects/receitas/home.webp" alt="" />
+            <img className="ref-collage-image image-three" src="/projects/differenza/after.webp" alt="" />
+          </div>
+          <h2 className="ref-scene-title">Designs criados sob medida para o seu negócio, <em>mas sem limites para o seu impacto.</em></h2>
+        </div>
       </section>
 
-      <section className="ref-scene ref-thinking-scene" id="thinking">
-        <div className="ref-scene-meta"><span>04 / Thinking</span><span>Design + engineering</span></div>
-        <div className="ref-statement ref-statement-thinking">Transformamos ideias em <em>interfaces</em> e produtos digitais inesquecíveis.</div>
-        <div className="ref-thinking-art ref-thinking-one"><img src="/projects/devmatch/dev.webp" alt="DevMatch developer profile" /></div>
-        <div className="ref-thinking-art ref-thinking-two"><img src="/projects/receitas/recipe.webp" alt="Receitas recipe interface" /></div>
-        <div className="ref-thinking-art ref-thinking-three"><img src="/projects/component-vault/overview.svg" alt="Component Vault architecture" /></div>
-        <div className="ref-thinking-copy"><span>What I bring</span><p>Direção visual, engenharia de interface, sistemas de componentes e atenção obsessiva aos detalhes.</p></div>
+      <section className="ref-scene ref-scene-thinking" id="thinking">
+        <div className="ref-scene-inner">
+          <span className="ref-eyebrow">03 — Thinking</span>
+          <div className="ref-thinking-image" aria-hidden="true">
+            <img src="/projects/component-vault/overview.svg" alt="" />
+          </div>
+          <h2 className="ref-scene-title">Transformamos ideias em <em>interfaces</em> e produtos digitais inesquecíveis.</h2>
+          <p className="ref-thinking-note">Design + engineering<br />React / TypeScript / Next.js</p>
+        </div>
       </section>
 
-      <section className="ref-scene ref-contact-scene" id="contact">
-        <div className="ref-scene-meta"><span>05 / Contact</span><span>Wess — Brazil</span></div>
-        <div className="ref-contact-statement">Pronto para elevar o nível do seu <em>produto?</em></div>
-        <a className="ref-contact-button" href="mailto:wess.c@proton.me">Iniciar um projeto <span>↗</span></a>
-        <div className="ref-contact-footer"><div><a href="https://github.com/WessYu" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/wesley-santos-cruz-b57589213/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="/Wesley_Cruz_CV_PT.pdf">Resume ↗</a></div><span>© 2026 Wess</span></div>
+      <section className="ref-scene ref-scene-contact" id="contact">
+        <div className="ref-scene-inner">
+          <span className="ref-eyebrow">04 — Contact</span>
+          <h2 className="ref-contact-title">Pronto para elevar o nível do seu <em>design?</em></h2>
+          <a className="ref-contact-button" href="mailto:wess.c@proton.me">Iniciar um projeto agora <span>↗</span></a>
+          <div className="ref-contact-links">
+            <a href="https://github.com/WessYu" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/wesley-santos-cruz-b57589213/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a href="/Wesley_Cruz_CV_PT.pdf">Resume ↗</a>
+          </div>
+        </div>
       </section>
+
+      <ProjectRail active={active} />
     </main>
   )
 }
