@@ -11,11 +11,13 @@ import './portfolio-polish.css'
 import './performance.css'
 import './studio-direction.css'
 import './studio-finish.css'
+import './professional-experience.css'
 import { ErrorBoundary } from './components/ErrorBoundary'
 import { TechStack } from './components/TechStack'
 import { mountComponentVaultSpotlight } from './componentVaultSpotlight'
 import { initProjectReel } from './projectReel'
 import { applyContentEnhancements } from './contentEnhancements'
+import { initProfessionalExperience } from './professionalExperience'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -30,6 +32,7 @@ const startEnhancements = () => {
   mountComponentVaultSpotlight()
   initProjectReel()
   applyContentEnhancements()
+  initProfessionalExperience()
 }
 
 if ('requestIdleCallback' in window) {
