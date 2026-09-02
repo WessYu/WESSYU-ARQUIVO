@@ -2,6 +2,9 @@ const COMPONENT_VAULT_DEMO = 'https://component-vault-dun.vercel.app'
 const COMPONENT_VAULT_REPOSITORY = 'https://github.com/WessYu/component-vault'
 const COMPONENT_VAULT_NPM = 'https://www.npmjs.com/package/@wess2001/component-vault'
 const VELOCITY_REPOSITORY = 'https://github.com/WessYu/velocity'
+const VELOCITY_NPM = 'https://www.npmjs.com/package/@wess2001/velocity'
+
+const SELECTED_PRODUCT_CASES = new Set(['devmatch', 'differenza'])
 
 function updateComponentVaultReelDetails(scene: HTMLElement) {
   const topMeta = scene.querySelector<HTMLElement>('.projectReelTopMeta')
@@ -13,17 +16,17 @@ function updateComponentVaultReelDetails(scene: HTMLElement) {
       <p>DESTAQUES</p>
       <ol>
         <li><b>01</b><span>AST-BASED GOVERNANCE</span></li>
-        <li><b>02</b><span>NPX CLI + AUTOFIX</span></li>
+        <li><b>02</b><span>NPM CLI + AUTOFIX</span></li>
         <li><b>03</b><span>SEMANTIC RULES + CI</span></li>
       </ol>
-      <div><span>NEXT.JS</span><span>TYPESCRIPT</span><span>CONVEX</span><span>NPX</span></div>
+      <div><span>NEXT.JS</span><span>TYPESCRIPT</span><span>CONVEX</span><span>CI</span></div>
     `
   }
 }
 
 function updateVelocityReelDetails(scene: HTMLElement) {
   const topMeta = scene.querySelector<HTMLElement>('.projectReelTopMeta')
-  if (topMeta) topMeta.innerHTML = '<em>2026</em><span>PERFORMANCE ENGINEERING / DEV TOOL</span><small>BENCHMARKS + DIAGNOSTICS + SAFE OPTIMIZATION</small>'
+  if (topMeta) topMeta.innerHTML = '<em>2026</em><span>PERFORMANCE ENGINEERING / DEV TOOL</span><small>MEASUREMENT + REGRESSION CONTROL</small>'
 
   const sideInfo = scene.querySelector<HTMLElement>('.projectReelSideInfo')
   if (sideInfo) {
@@ -34,7 +37,7 @@ function updateVelocityReelDetails(scene: HTMLElement) {
         <li><b>02</b><span>BENCHMARK + COMPARE</span></li>
         <li><b>03</b><span>SAFE OPTIMIZE + VERIFY</span></li>
       </ol>
-      <div><span>NODE.JS</span><span>TYPESCRIPT</span><span>PLAYWRIGHT</span><span>CLI</span></div>
+      <div><span>NODE.JS</span><span>TYPESCRIPT</span><span>CHROMIUM</span><span>CLI</span></div>
     `
   }
 }
@@ -51,11 +54,11 @@ function createComponentVaultScene() {
     <div class="projectLabel componentVaultLabel is-visible" data-reveal>
       <span class="componentVaultKicker">DEV TOOL / COMPONENT GOVERNANCE</span>
       <h2>Component Vault</h2>
-      <p>Uma ferramenta de governança para ecossistemas Front-End. O Guard analisa código via TypeScript AST, transforma regras de design system em validações executáveis e ajuda a controlar componentes, imports e padrões sem depender de revisão manual.</p>
-      <p>O projeto inclui uma CLI distribuída via NPX com <strong>scan, analyze, check, baseline, PR reporting e autofix</strong>, além de estratégias para adoção gradual em codebases existentes.</p>
+      <p>Plataforma de componentes com um motor de governança baseado em TypeScript AST. O Guard transforma regras de design system e arquitetura de UI em validações executáveis para TypeScript, TSX, JavaScript e JSX.</p>
+      <p>A CLI publicada no npm inclui <strong>scan, analyze, check, baseline, PR reporting e autofix</strong>, com suporte a adoção gradual, automação em CI e um workspace Next.js/React para organização e revisão dos componentes.</p>
       <div class="componentVaultActions">
         <a href="${COMPONENT_VAULT_DEMO}" target="_blank" rel="noreferrer">Ver produto ↗</a>
-        <a href="${COMPONENT_VAULT_NPM}" target="_blank" rel="noreferrer">Ver CLI / npm ↗</a>
+        <a href="${COMPONENT_VAULT_NPM}" target="_blank" rel="noreferrer">Ver npm ↗</a>
         <a href="${COMPONENT_VAULT_REPOSITORY}" target="_blank" rel="noreferrer">Ver código ↗</a>
       </div>
     </div>
@@ -78,11 +81,11 @@ function createVelocityScene() {
     <div class="projectLabel componentVaultLabel is-visible" data-reveal>
       <span class="componentVaultKicker">DEV TOOL / PERFORMANCE ENGINEERING</span>
       <h2>Velocity</h2>
-      <p>CLI para diagnóstico e engenharia de performance em projetos JavaScript e TypeScript. O foco é medir com contexto, comparar ambientes compatíveis e transformar gargalos em sinais técnicos reproduzíveis.</p>
-      <p>Inclui <strong>analyze, check, compare, build, load, optimize, verify, bench e profile</strong>, além de saída JSON/SARIF, API ESM, tipos TypeScript e proteções para evitar otimizações ou comparações tecnicamente enganosas.</p>
+      <p>CLI e API ESM para coletar evidências de performance em projetos JavaScript e TypeScript, combinando análise estática, artifacts de build, medições em Chromium, benchmarks e profiling de Node.js.</p>
+      <p>Inclui <strong>analyze, check, compare, build, load, optimize, verify, bench e profile</strong>, gates de regressão em CI, saídas JSON/SARIF e proteções para evitar comparações ou otimizações tecnicamente enganosas.</p>
       <div class="componentVaultActions">
         <a href="${VELOCITY_REPOSITORY}" target="_blank" rel="noreferrer">Ver projeto ↗</a>
-        <a href="https://www.npmjs.com/package/@wess2001/velocity" target="_blank" rel="noreferrer">Ver npm ↗</a>
+        <a href="${VELOCITY_NPM}" target="_blank" rel="noreferrer">Ver npm ↗</a>
       </div>
     </div>
     <div class="componentVaultStamp" aria-hidden="true"><span>PERFORMANCE TOOLING</span><b>V</b></div>
@@ -90,6 +93,15 @@ function createVelocityScene() {
 
   scene.querySelector<HTMLButtonElement>('.velocityImageButton')?.addEventListener('click', () => window.open(VELOCITY_REPOSITORY, '_blank', 'noopener,noreferrer'))
   return scene
+}
+
+function keepOnlySelectedCases(reel: HTMLElement) {
+  reel.querySelectorAll<HTMLElement>('.projectScene').forEach((scene) => {
+    if (scene.dataset.componentVaultSpotlight === 'true' || scene.dataset.velocitySpotlight === 'true') return
+
+    const title = scene.querySelector('h2')?.textContent?.trim().toLowerCase()
+    if (!title || !SELECTED_PRODUCT_CASES.has(title)) scene.remove()
+  })
 }
 
 export function mountComponentVaultSpotlight() {
@@ -109,6 +121,8 @@ export function mountComponentVaultSpotlight() {
     velocity = createVelocityScene()
     componentVault.insertAdjacentElement('afterend', velocity)
   }
+
+  keepOnlySelectedCases(reel)
 
   window.requestAnimationFrame(() =>
     window.requestAnimationFrame(() => {
