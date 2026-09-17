@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1292" height="660" viewBox="0 0 1292 660" role="img" aria-labelledby="title desc">
+  <title id="title">NEXUS engineering gate overview</title>
+  <desc id="desc">Monochrome engineering dashboard connecting quality, performance and security into a single repository gate.</desc>
+  <rect width="1292" height="660" fill="#ececea"/>
+  <rect x="0" y="0" width="1292" height="64" fill="#111111"/>
+  <text x="48" y="41" font-family="Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.8" fill="#f1f1ef">NEXUS / ENGINEERING GATE</text>
+  <text x="1218" y="41" text-anchor="end" font-family="Arial, sans-serif" font-size="13" fill="#8e8e8a">SCHEMA V1</text>
+
+  <g transform="translate(56 106)">
+    <rect width="150" height="150" rx="32" fill="#111111" stroke="#303030" stroke-width="2"/>
+    <g transform="translate(-6 -6) scale(.48)">
+      <path d="M 96,92 L 96,219 L 132,250 L 136,250 L 137,184 L 139,182 L 190,224 L 241,270 L 246,271 L 246,222 L 99,92 Z" fill="#666666" fill-rule="evenodd"/>
+      <path d="M 205,92 L 204,177 L 207,183 L 246,215 L 247,125 L 210,93 Z" fill="#666666" fill-rule="evenodd"/>
+      <path d="M 97,95 L 97,216 L 134,247 L 135,180 L 138,178 L 241,267 L 244,267 L 243,223 Z" fill="#ededed" fill-rule="evenodd"/>
+      <path d="M 208,96 L 208,180 L 243,211 L 244,125 Z" fill="#ededed" fill-rule="evenodd"/>
+    </g>
+  </g>
+
+  <text x="56" y="316" font-family="Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="-4" fill="#101010">NEXUS</text>
+  <text x="58" y="356" font-family="Arial, sans-serif" font-size="16" font-weight="700" letter-spacing="2.4" fill="#5c5c58">QUALITY · PERFORMANCE · SECURITY</text>
+  <text x="58" y="403" font-family="Arial, sans-serif" font-size="18" fill="#343432">Three independent engines.</text>
+  <text x="58" y="431" font-family="Arial, sans-serif" font-size="18" fill="#343432">One repository-level decision.</text>
+
+  <g transform="translate(432 106)">
+    <rect width="804" height="438" rx="26" fill="#f7f7f4" stroke="#cfcfca"/>
+    <text x="34" y="43" font-family="Arial, sans-serif" font-size="13" font-weight="700" letter-spacing="2.1" fill="#6b6b67">ENGINE STATUS</text>
+
+    <g transform="translate(34 78)">
+      <rect width="736" height="82" rx="16" fill="#ffffff" stroke="#dadad6"/>
+      <circle cx="34" cy="41" r="10" fill="#111111"/>
+      <text x="62" y="33" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111111">Component Vault</text>
+      <text x="62" y="56" font-family="Arial, sans-serif" font-size="13" fill="#777772">QUALITY / COMPONENT GOVERNANCE</text>
+      <text x="692" y="47" text-anchor="end" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111111">COMPLETED</text>
+    </g>
+
+    <g transform="translate(34 174)">
+      <rect width="736" height="82" rx="16" fill="#ffffff" stroke="#dadad6"/>
+      <circle cx="34" cy="41" r="10" fill="#111111"/>
+      <text x="62" y="33" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111111">Velocity</text>
+      <text x="62" y="56" font-family="Arial, sans-serif" font-size="13" fill="#777772">PERFORMANCE / REGRESSION EVIDENCE</text>
+      <text x="692" y="47" text-anchor="end" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111111">COMPLETED</text>
+    </g>
+
+    <g transform="translate(34 270)">
+      <rect width="736" height="82" rx="16" fill="#ffffff" stroke="#dadad6"/>
+      <circle cx="34" cy="41" r="10" fill="#111111"/>
+      <text x="62" y="33" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#111111">SPECTER</text>
+      <text x="62" y="56" font-family="Arial, sans-serif" font-size="13" fill="#777772">SECURITY / APPLICATION SECURITY</text>
+      <text x="692" y="47" text-anchor="end" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#111111">COMPLETED</text>
+    </g>
+
+    <line x1="34" y1="378" x2="770" y2="378" stroke="#d6d6d1"/>
+    <text x="34" y="414" font-family="Courier New, monospace" font-size="15" fill="#555550">$ npx nexus check .</text>
+    <text x="770" y="414" text-anchor="end" font-family="Arial, sans-serif" font-size="16" font-weight="800" fill="#111111">ENGINEERING GATE PASSED</text>
+  </g>
+
+  <g transform="translate(56 570)">
+    <line x1="0" y1="0" x2="1180" y2="0" stroke="#c8c8c3"/>
+    <text x="0" y="34" font-family="Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.9" fill="#6c6c68">ORCHESTRATION / NORMALIZATION / POLICY</text>
+    <text x="1180" y="34" text-anchor="end" font-family="Arial, sans-serif" font-size="12" fill="#7d7d78">@wess2001/nexus</text>
+  </g>
+</svg>

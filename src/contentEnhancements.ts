@@ -24,38 +24,39 @@ function updateEvolution() {
   const block2026 = yearBlocks.find((block) => block.querySelector('h3')?.textContent?.trim() === '2026')
   if (!block2026) return
 
-  const items = ['Next.js + TypeScript', 'PostgreSQL + Convex', 'Playwright + CI/CD', 'CLI + AST Tooling']
+  const items = ['Next.js + TypeScript', 'Developer Tooling + CI', 'Performance + AppSec']
   block2026.querySelectorAll('p').forEach((item, index) => {
     if (items[index]) item.textContent = items[index]
   })
 }
 
 export function applyContentEnhancements() {
+  setText('#intro-title', 'Interfaces e ferramentas de engenharia')
   setText(
     '.introCenter > p',
-    'Desenvolvedor Front-End especializado em React, Next.js e TypeScript. Construo produtos web com atenção a UI/UX, acessibilidade, componentização e engenharia de software.'
+    'Minha base é front-end. Hoje também construo as ferramentas ao redor do produto: governança de código, análise de performance, segurança de aplicações e gates de CI para projetos JavaScript e TypeScript.'
   )
 
   const introRole = document.querySelector<HTMLElement>('.introRole')
   if (introRole) {
-    introRole.innerHTML = 'React · Next.js · TypeScript.<br />UI Engineering · Developer Tooling.<br />Do design ao deploy.'
+    introRole.innerHTML = 'React · Next.js · TypeScript.<br />Developer Tooling · Performance · AppSec.<br />Do produto ao engineering gate.'
   }
 
-  setText('.why h2', 'Interface é parte do produto, não uma camada isolada.')
+  setText('.why h2', 'Comecei pela interface. Hoje sigo o problema até a engenharia.')
   setText(
     '.why > p',
-    'Minha base em design orienta hierarquia, clareza e experiência. No desenvolvimento, levo isso até arquitetura de componentes, dados, APIs, testes, performance e entrega em produção.'
+    'Design continua sendo a origem do meu olhar para hierarquia, clareza e experiência. No código, esse cuidado evoluiu para component APIs, análise estática, medições reais no navegador, backend, segurança e automação em CI.'
   )
 
-  setText('.person h2', 'Front-End como especialidade. Engenharia de produto como contexto.')
+  setText('.person h2', 'Front-end é minha base. Developer tooling é onde aprofundei.')
   setText(
     '.person > p',
-    'Caxias do Sul, RS — Brasil. Trabalho principalmente com React, Next.js e TypeScript e também tenho experiência prática com APIs REST, PostgreSQL, Prisma, Convex, autenticação, testes E2E, CI/CD e ferramentas para desenvolvedores.'
+    'Caxias do Sul, RS — Brasil. Trabalho principalmente com React, Next.js e TypeScript. Nos projetos mais recentes, aprofundei Node.js, PostgreSQL, Prisma, Fastify, Playwright, AST tooling, performance engineering e application security.'
   )
 
   setText(
     '.contact > p',
-    'Busco uma oportunidade como Desenvolvedor Front-End para contribuir em produtos reais, trabalhar com um time de engenharia e continuar evoluindo através de revisão de código, colaboração e problemas de produção.'
+    'Busco uma oportunidade como Desenvolvedor Front-End ou Software Developer para contribuir em produtos reais e continuar crescendo com revisão de código, arquitetura, performance, segurança e engenharia de entrega.'
   )
 
   updateProjectSummaries()

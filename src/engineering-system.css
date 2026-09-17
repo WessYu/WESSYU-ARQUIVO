@@ -1,0 +1,283 @@
+/* 2026 positioning pass: front-end + engineering systems, with a neutral monochrome identity. */
+
+.archiveNav > a::before {
+  background: #f2f0ea;
+  box-shadow: none;
+}
+
+.intro::before {
+  background:
+    radial-gradient(circle at 50% 38%, rgba(255, 255, 255, 0.045), transparent 28%),
+    linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.introCenter::before {
+  content: 'FRONT-END / DEVELOPER TOOLING / APPSEC';
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.018);
+}
+
+.intro h1::after {
+  content: 'INTERFACES\A + FERRAMENTAS';
+}
+
+.introRole {
+  border-left-color: rgba(255, 255, 255, 0.2);
+}
+
+.why::after {
+  content: 'INTERFACE → TOOLING → ENGINEERING GATES';
+}
+
+.engineeringToolkit {
+  position: relative;
+  padding: clamp(76px, 9vw, 132px) var(--pad) clamp(86px, 10vw, 150px);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.012), transparent 26%),
+    #050505;
+}
+
+.engineeringToolkitLead {
+  width: min(var(--max), 100%);
+  margin: 0 auto clamp(50px, 7vw, 86px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: clamp(30px, 6vw, 92px);
+  align-items: end;
+}
+
+.engineeringToolkitLead h2 {
+  max-width: 820px;
+  margin-top: 14px;
+  font-size: clamp(2.35rem, 5vw, 5.9rem);
+  line-height: 0.94;
+  letter-spacing: -0.06em;
+}
+
+.engineeringToolkitLead > p {
+  max-width: 560px;
+  justify-self: end;
+  color: rgba(242, 240, 234, 0.63);
+  font-size: 0.98rem;
+  line-height: 1.72;
+}
+
+.engineeringToolkitGrid {
+  width: min(var(--max), 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(22px, 3vw, 46px);
+}
+
+.engineeringTool {
+  min-width: 0;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.engineeringToolIcon {
+  display: inline-block;
+  margin-bottom: 28px;
+}
+
+.engineeringToolIcon img {
+  width: 76px;
+  height: 76px;
+  border-radius: 16px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.32);
+  transition: transform 220ms var(--motion-ease), opacity 180ms ease;
+}
+
+.engineeringToolIcon:hover img,
+.engineeringToolIcon:focus-visible img {
+  transform: translateY(-3px);
+  opacity: 0.9;
+}
+
+.engineeringTool > p {
+  color: rgba(242, 240, 234, 0.38);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.engineeringTool h3 {
+  margin-top: 9px;
+  color: #f2f0ea;
+  font-size: clamp(1.25rem, 1.7vw, 1.65rem);
+  letter-spacing: -0.035em;
+}
+
+.engineeringTool > span {
+  display: block;
+  margin-top: 7px;
+  color: rgba(242, 240, 234, 0.69);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.engineeringTool > small {
+  display: block;
+  max-width: 250px;
+  min-height: 48px;
+  margin-top: 14px;
+  color: rgba(242, 240, 234, 0.5);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.engineeringTool > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 22px;
+}
+
+.engineeringTool > div a {
+  color: rgba(242, 240, 234, 0.68);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.engineeringTool > div a:hover,
+.engineeringTool > div a:focus-visible {
+  color: #f2f0ea;
+}
+
+.projectSceneSpotlight {
+  background:
+    radial-gradient(circle at 73% 24%, rgba(255, 255, 255, 0.045), transparent 31%),
+    #020202 !important;
+}
+
+.projectSceneSpotlight .projectImageButton,
+.projectSceneSpotlight.is-reel-active .projectImageButton {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow: 0 34px 92px rgba(0, 0, 0, 0.56);
+}
+
+.projectSceneSpotlight .componentVaultKicker {
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.045);
+  color: rgba(242, 240, 234, 0.78);
+}
+
+.componentVaultStamp b {
+  color: rgba(242, 240, 234, 0.9);
+}
+
+.componentVaultActions a:first-child {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.componentVaultActions a:hover,
+.componentVaultActions a:focus-visible {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nexusSpotlight .projectImageButton,
+.nexusSpotlight.is-reel-active .projectImageButton {
+  background: #efefec;
+}
+
+.specterSpotlight .projectImageButton,
+.specterSpotlight.is-reel-active .projectImageButton {
+  background: #090a0b;
+}
+
+.noteGrid span:hover,
+.evolutionGrid .yearBlock:last-child,
+.caseActions a:first-child {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.contact::before {
+  background: radial-gradient(circle at 18% 100%, rgba(255, 255, 255, 0.045), transparent 34%);
+}
+
+@media (max-width: 980px) {
+  .engineeringToolkitLead {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .engineeringToolkitLead > p {
+    justify-self: start;
+  }
+
+  .engineeringToolkitGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 48px;
+  }
+}
+
+@media (max-width: 720px) {
+  .intro h1::after {
+    content: 'INTERFACES\A + FERRAMENTAS';
+  }
+
+  .engineeringToolkit {
+    padding-inline: 18px;
+  }
+
+  .engineeringToolkitLead {
+    margin-bottom: 42px;
+  }
+
+  .engineeringToolkitLead h2 {
+    font-size: clamp(2.2rem, 11vw, 3.8rem);
+  }
+
+  .engineeringToolkitGrid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .engineeringTool {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: start;
+  }
+
+  .engineeringToolIcon {
+    grid-row: 1 / span 5;
+    margin: 0;
+  }
+
+  .engineeringToolIcon img {
+    width: 70px;
+    height: 70px;
+    border-radius: 15px;
+  }
+
+  .engineeringTool > p,
+  .engineeringTool h3,
+  .engineeringTool > span,
+  .engineeringTool > small,
+  .engineeringTool > div {
+    grid-column: 2;
+  }
+
+  .engineeringTool > small {
+    min-height: 0;
+  }
+
+  .engineeringTool > div {
+    margin-top: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .engineeringToolIcon img {
+    transition: none;
+  }
+}
