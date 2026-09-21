@@ -1,6 +1,6 @@
 <svg width="1806" height="990" viewBox="0 0 1806 990" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
   <title id="title">Preview do WESSYU Arquivo</title>
-  <desc id="desc">Prévia visual do portfólio WESSYU Arquivo com fundo preto, navegação superior e chamada Arquivo de Trabalhos.</desc>
+  <desc id="desc">Prévia visual do portfólio WESSYU Arquivo com foco em software, produto e developer tooling.</desc>
   <style>
     @keyframes grain { 0% { opacity: .18; transform: translate3d(0,0,0); } 50% { opacity: .28; transform: translate3d(-10px,6px,0); } 100% { opacity: .18; transform: translate3d(8px,-6px,0); } }
     @keyframes glow { 0%,100% { opacity: .92; } 50% { opacity: 1; } }
@@ -24,17 +24,17 @@
   <path d="M1738 24c1.7-4 10.3-4 12 0" stroke="#000" stroke-width="2" stroke-linecap="round"/>
   <text x="40" y="132" class="mono" fill="#525252" font-size="18" font-weight="800">WESSYU</text>
   <g style="animation: float 7s ease-in-out infinite">
-    <text x="572" y="468" class="title" fill="#f6f6ef" font-size="110">ARQUIVO DE</text>
-    <text x="580" y="572" class="title" fill="#f6f6ef" font-size="110">TRABALHOS</text>
+    <text x="572" y="468" class="title" fill="#f6f6ef" font-size="110">SOFTWARE +</text>
+    <text x="580" y="572" class="title" fill="#f6f6ef" font-size="110">TOOLING</text>
     <text x="570" y="468" class="title" fill="#b8ffec" font-size="110" opacity="0.08">ARQUIVO DE</text>
     <text x="578" y="572" class="title" fill="#ff7aa8" font-size="110" opacity="0.06">TRABALHOS</text>
   </g>
-  <text x="556" y="651" class="mono muted" font-size="22">Projetos criados durante minha transição do design para o desenvolvimento.</text>
+  <text x="556" y="651" class="mono muted" font-size="22">Produtos web, developer tooling, performance e application security.</text>
   <text x="840" y="706" class="mono muted" font-size="24" font-weight="800">2023 — 2026</text>
   <g style="animation: glow 3.8s ease-in-out infinite">
-    <text x="1382" y="862" class="mono" fill="#c9c9c9" font-size="22" font-weight="800">Designer desde 2020.</text>
-    <text x="1382" y="898" class="mono" fill="#c9c9c9" font-size="22" font-weight="800">Desenvolvedor front-end desde 2023.</text>
-    <text x="1382" y="934" class="mono" fill="#c9c9c9" font-size="22" font-weight="800">Construo interfaces e aplicações web.</text>
+    <text x="1382" y="862" class="mono" fill="#c9c9c9" font-size="22" font-weight="800">Software Developer.</text>
+    <text x="1382" y="898" class="mono" fill="#c9c9c9" font-size="22" font-weight="800">Front-end como base.</text>
+    <text x="1382" y="934" class="mono" fill="#c9c9c9" font-size="22" font-weight="800">Tooling, performance e AppSec.</text>
   </g>
   <rect x="0.5" y="0.5" width="1805" height="989" stroke="#111"/>
 </svg>
