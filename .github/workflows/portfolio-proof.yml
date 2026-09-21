@@ -26,6 +26,9 @@ jobs:
       - name: Install
         run: npm ci
 
+      - name: Install screenshot runtime
+        run: npm install --no-save --package-lock=false playwright-core@1.55.0
+
       - name: Build
         run: npm run build
 
@@ -57,16 +60,43 @@ jobs:
         shell: bash
         run: |
           mkdir -p artifacts/screenshots
-          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
-          echo "Chrome: $CHROME"
+          export CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          echo "Chrome: $CHROME_BIN"
 
-          "$CHROME"             --headless=new             --no-sandbox             --disable-gpu             --hide-scrollbars             --window-size=1440,900             --virtual-time-budget=2500             --screenshot=artifacts/screenshots/hero-desktop.png             http://127.0.0.1:4173/
+          node <<'NODE'
+          import { chromium } from 'playwright-core'
 
-          "$CHROME"             --headless=new             --no-sandbox             --disable-gpu             --hide-scrollbars             --window-size=1440,900             --virtual-time-budget=2500             --screenshot=artifacts/screenshots/toolkit-desktop.png             http://127.0.0.1:4173/#toolkit
+          const browser = await chromium.launch({
+            headless: true,
+            executablePath: process.env.CHROME_BIN,
+            args: ['--no-sandbox', '--disable-gpu'],
+          })
 
-          "$CHROME"             --headless=new             --no-sandbox             --disable-gpu             --hide-scrollbars             --window-size=1440,900             --virtual-time-budget=2500             --screenshot=artifacts/screenshots/stack-desktop.png             http://127.0.0.1:4173/#tecnologias
+          const base = 'http://127.0.0.1:4173/'
+          const shots = [
+            { file: 'hero-desktop.png', viewport: { width: 1440, height: 900 } },
+            { file: 'toolkit-desktop.png', viewport: { width: 1440, height: 900 }, selector: '#toolkit' },
+            { file: 'stack-desktop.png', viewport: { width: 1440, height: 900 }, selector: '#tecnologias' },
+            { file: 'projects-desktop.png', viewport: { width: 1440, height: 900 }, selector: '#projects' },
+            { file: 'hero-mobile.png', viewport: { width: 390, height: 844 } },
+          ]
 
-          "$CHROME"             --headless=new             --no-sandbox             --disable-gpu             --hide-scrollbars             --window-size=390,844             --force-device-scale-factor=1             --virtual-time-budget=2500             --screenshot=artifacts/screenshots/hero-mobile.png             http://127.0.0.1:4173/
+          for (const shot of shots) {
+            const page = await browser.newPage({ viewport: shot.viewport })
+            await page.goto(base, { waitUntil: 'networkidle' })
+            if (shot.selector) {
+              await page.locator(shot.selector).scrollIntoViewIfNeeded()
+              await page.waitForTimeout(650)
+            }
+            await page.screenshot({
+              path: `artifacts/screenshots/${shot.file}`,
+              fullPage: false,
+            })
+            await page.close()
+          }
+
+          await browser.close()
+          NODE
 
       - name: Lighthouse mobile
         run: |
