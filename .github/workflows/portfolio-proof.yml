@@ -74,23 +74,23 @@ jobs:
 
           const base = 'http://127.0.0.1:4173/'
           const shots = [
-            { file: 'hero-desktop.png', viewport: { width: 1440, height: 900 } },
+            { file: 'hero-desktop.png', viewport: { width: 1440, height: 900 }, selector: '.intro' },
             { file: 'toolkit-desktop.png', viewport: { width: 1440, height: 900 }, selector: '#toolkit' },
             { file: 'stack-desktop.png', viewport: { width: 1440, height: 900 }, selector: '#tecnologias' },
-            { file: 'projects-desktop.png', viewport: { width: 1440, height: 900 }, selector: '#projects' },
-            { file: 'hero-mobile.png', viewport: { width: 390, height: 844 } },
+            { file: 'projects-desktop.png', viewport: { width: 1440, height: 900 }, selector: '#projects > .projectScene:first-child' },
+            { file: 'hero-mobile.png', viewport: { width: 390, height: 844 }, selector: '.intro' },
           ]
 
           for (const shot of shots) {
             const page = await browser.newPage({ viewport: shot.viewport })
             await page.goto(base, { waitUntil: 'networkidle' })
-            if (shot.selector) {
-              await page.locator(shot.selector).scrollIntoViewIfNeeded()
-              await page.waitForTimeout(650)
-            }
-            await page.screenshot({
+            await page.evaluate(() => document.fonts?.ready)
+            const target = page.locator(shot.selector)
+            await target.scrollIntoViewIfNeeded()
+            await page.waitForTimeout(450)
+            await target.screenshot({
               path: `artifacts/screenshots/${shot.file}`,
-              fullPage: false,
+              animations: 'disabled',
             })
             await page.close()
           }
