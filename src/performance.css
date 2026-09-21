@@ -4,7 +4,8 @@
 .evolution,
 .person,
 .contact,
-.techStackSection {
+.techStack,
+.engineeringToolkit {
   content-visibility: auto;
   contain-intrinsic-size: auto 900px;
 }
@@ -21,6 +22,18 @@
 .caseHero img,
 .screens img {
   backface-visibility: hidden;
+}
+
+.techStack,
+.caseStudy,
+.evolution,
+.person,
+.contact {
+  contain-intrinsic-block-size: 900px;
+}
+
+.techIconFrame svg {
+  contain: strict;
 }
 
 @media (max-width: 720px) {

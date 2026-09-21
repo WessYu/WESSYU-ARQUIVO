@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { ProjectCase } from './types'
+import { TechStack } from './components/TechStack'
 
 const LINKS = {
   github: 'https://github.com/WessYu',
@@ -408,6 +409,8 @@ export default function App() {
         </div>
       </section>
 
+      <TechStack />
+
       <section className="person" id="sobre" aria-labelledby="person-title">
         <div className="sectionTitle" data-reveal>
           <p className="metaLine">Sobre</p>
@@ -443,11 +446,11 @@ function EngineeringToolkit() {
       <div className="engineeringToolkitLead" data-reveal>
         <div>
           <p className="metaLine">ENGINEERING TOOLKIT</p>
-          <h2 id="toolkit-title">Quatro ferramentas. Uma linha de engenharia.</h2>
+          <h2 id="toolkit-title">Quatro ferramentas. Um fluxo de engenharia.</h2>
         </div>
         <p>
-          Componentes, performance e segurança continuam separados onde precisam ser. O NEXUS conecta esses sinais em
-          um único gate sem esconder a evidência produzida por cada engine.
+          Component Vault, Velocity e SPECTER analisam áreas diferentes do produto. O NEXUS reúne esses sinais antes
+          do merge e do deploy, sem apagar a evidência produzida por cada engine.
         </p>
       </div>
       <div className="engineeringToolkitGrid">

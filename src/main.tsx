@@ -12,20 +12,17 @@ import './performance.css'
 import './senior-pass.css'
 import './engineering-system.css'
 import { ErrorBoundary } from './components/ErrorBoundary'
-import { TechStack } from './components/TechStack'
-import { initProjectReel } from './projectReel'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <ErrorBoundary>
       <App />
-      <TechStack />
     </ErrorBoundary>
   </React.StrictMode>,
 )
 
 const startEnhancements = () => {
-  initProjectReel()
+  void import('./projectReel').then(({ initProjectReel }) => initProjectReel())
 }
 
 if ('requestIdleCallback' in window) {
