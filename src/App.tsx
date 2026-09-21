@@ -3,10 +3,103 @@ import type { ProjectCase } from './types'
 
 const LINKS = {
   github: 'https://github.com/WessYu',
-  linkedin: 'https://www.linkedin.com/in/wesley-santos-cruz-b57589213/',
+  linkedin: 'https://www.linkedin.com/in/wesley-cruz2001/',
   email: 'mailto:wess.c@proton.me',
   resume: '/Wesley_Cruz_CV_PT.pdf',
 }
+
+type EngineeringTool = {
+  id: string
+  title: string
+  kicker: string
+  icon: string
+  image: string
+  imageAlt: string
+  repository: string
+  npm?: string
+  demo?: string
+  category: string
+  stack: string
+  toolkitSummary: string
+  paragraphs: string[]
+  stamp: string
+}
+
+const ENGINEERING_TOOLS: EngineeringTool[] = [
+  {
+    id: 'nexus',
+    title: 'NEXUS',
+    kicker: 'ENGINEERING ORCHESTRATION',
+    icon: '/projects/toolkit/nexus.svg',
+    image: '/projects/nexus/overview.svg',
+    imageAlt: 'NEXUS conectando qualidade, performance e segurança em um único engineering gate',
+    repository: 'https://github.com/WessYu/NEXUS',
+    npm: 'https://www.npmjs.com/package/@wess2001/nexus',
+    category: 'ORCHESTRATION',
+    stack: 'Quality · Performance · Security',
+    toolkitSummary: 'Um engineering gate para os três motores.',
+    paragraphs: [
+      'CLI que orquestra Component Vault, Velocity e SPECTER, normaliza os resultados em um contrato comum e aplica uma política única de repositório.',
+      'Qualidade, performance e segurança continuam como engines independentes, mas podem rodar em um único check antes do merge ou deploy.',
+    ],
+    stamp: 'N',
+  },
+  {
+    id: 'component-vault',
+    title: 'Component Vault',
+    kicker: 'DEV TOOL / COMPONENT GOVERNANCE',
+    icon: '/projects/toolkit/component-vault.svg',
+    image: '/projects/component-vault/overview.svg',
+    imageAlt: 'Component Vault com workspace de componentes, governança, análise e developer tooling',
+    repository: 'https://github.com/WessYu/component-vault',
+    npm: 'https://www.npmjs.com/package/@wess2001/component-vault',
+    demo: 'https://component-vault-dun.vercel.app',
+    category: 'QUALITY / GOVERNANCE',
+    stack: 'AST · Components · CI',
+    toolkitSummary: 'Governança de componentes e design system como código.',
+    paragraphs: [
+      'Plataforma de componentes com um motor de governança baseado em TypeScript AST para TypeScript, TSX, JavaScript e JSX.',
+      'A CLI reúne análise, baseline, PR reporting, autofix e automação em CI, com um workspace Next.js/React para organizar e revisar componentes.',
+    ],
+    stamp: 'CV',
+  },
+  {
+    id: 'velocity',
+    title: 'Velocity',
+    kicker: 'DEV TOOL / PERFORMANCE ENGINEERING',
+    icon: '/projects/toolkit/velocity.svg',
+    image: '/projects/velocity/overview.svg',
+    imageAlt: 'Velocity apresentado como CLI de diagnóstico, benchmark e otimização de performance',
+    repository: 'https://github.com/WessYu/velocity',
+    npm: 'https://www.npmjs.com/package/@wess2001/velocity',
+    category: 'PERFORMANCE',
+    stack: 'Build · Browser · Benchmark',
+    toolkitSummary: 'Evidência de performance e controle de regressão.',
+    paragraphs: [
+      'CLI e API ESM para coletar evidências de performance combinando análise estática, artifacts de build, medições em Chromium, benchmarks e profiling de Node.js.',
+      'O fluxo inclui comparação de baselines, gates de regressão em CI e saídas JSON/SARIF para manter decisões de otimização revisáveis.',
+    ],
+    stamp: 'V',
+  },
+  {
+    id: 'specter',
+    title: 'SPECTER',
+    kicker: 'DEFENSIVE APPSEC / SECURITY TOOLING',
+    icon: '/projects/toolkit/specter.svg',
+    image: '/projects/specter/overview.svg',
+    imageAlt: 'SPECTER mostrando source, dependency, build e active security checks em um fluxo defensivo',
+    repository: 'https://github.com/WessYu/SPECTER',
+    npm: 'https://www.npmjs.com/package/@wess2001/specter',
+    category: 'APPLICATION SECURITY',
+    stack: 'Source · Runtime · CI',
+    toolkitSummary: 'AppSec defensivo do código à aplicação publicada.',
+    paragraphs: [
+      'Ferramenta de application security para encontrar regressões antes e depois do deploy em código-fonte, secrets, dependências, build output e aplicações publicadas.',
+      'O active testing é autorizado, limitado e não destrutivo, com budgets, rate limiting, cancelamento, relatórios JSON/SARIF e gates de CI.',
+    ],
+    stamp: 'S',
+  },
+]
 
 const PROJECTS: ProjectCase[] = [
   {
@@ -20,7 +113,7 @@ const PROJECTS: ProjectCase[] = [
     imageHeight: 900,
     repository: 'https://github.com/WessYu/DEVMATCH',
     demo: 'https://devmatch-neon.vercel.app',
-    summary: 'Produto full stack de recrutamento com vagas reais, perfis por papel, compatibilidade, matches, feed e chat.',
+    summary: 'Produto full stack de recrutamento técnico com perfis por papel, vagas reais, compatibilidade, matches, feed e chat.',
     problem:
       'Unificar descoberta de oportunidades, perfil técnico, compatibilidade e conversa sem perder as necessidades diferentes de empresas e desenvolvedores.',
     decisions: [
@@ -54,252 +147,16 @@ const PROJECTS: ProjectCase[] = [
       'Conversas e revisão responsiva',
     ],
     screens: [
-      {
-        label: 'Feed',
-        src: '/projects/devmatch/feed.webp',
-        alt: 'Feed do DevMatch com vagas e publicações',
-        width: 1120,
-        height: 900,
-      },
-      {
-        label: 'Workspace da empresa',
-        src: '/projects/devmatch/home.webp',
-        alt: 'Workspace da empresa no DevMatch com pipeline e candidatos',
-        width: 1120,
-        height: 900,
-      },
-      {
-        label: 'Perfil do desenvolvedor',
-        src: '/projects/devmatch/dev.webp',
-        alt: 'Console do desenvolvedor no DevMatch com perfil técnico',
-        width: 1120,
-        height: 900,
-      },
-      {
-        label: 'Matches',
-        src: '/projects/devmatch/contractor.webp',
-        alt: 'Área de matches do DevMatch com shortlist técnica',
-        width: 1120,
-        height: 900,
-      },
-      {
-        label: 'Mensagens',
-        src: '/projects/devmatch/chat.webp',
-        alt: 'Chat do DevMatch conectado ao match',
-        width: 1120,
-        height: 900,
-      },
-    ],
-  },
-  {
-    id: 'receitas',
-    number: '002',
-    title: 'Receitas',
-    year: '2026',
-    image: '/projects/receitas/home.webp',
-    imageAlt: 'Página inicial do Receitas com catálogo editorial de receitas',
-    imageWidth: 1440,
-    imageHeight: 1200,
-    repository: 'https://github.com/WessYu/Receitas',
-    demo: 'https://receitas-delta-eight.vercel.app',
-    summary: 'Aplicação full stack de receitas com autenticação, sessões, favoritos e painel administrativo.',
-    problem:
-      'Criar uma aplicação real de receitas, com usuário comum, administrador, busca, filtros, comentários e conteúdo gerenciado sem editar código.',
-    decisions: [
-      'Modelagem de usuários, receitas e favoritos',
-      'Controle de permissões entre usuário e administrador',
-      'Sessões e proteção de rotas',
-      'Upload de imagens pelo painel',
-    ],
-    implementation:
-      'Usei Next.js, Prisma e PostgreSQL para estruturar usuários, receitas, favoritos e comentários, mantendo o painel administrativo separado do fluxo público.',
-    learnings: ['Autenticação com sessão', 'Relacionamentos no Prisma', 'Busca e filtros', 'Revisão mobile'],
-    technicalNotes: [
-      'Autenticação',
-      'Sessões',
-      'PostgreSQL',
-      'Prisma',
-      'Favoritos',
-      'Comentários',
-      'Busca',
-      'Filtros',
-      'Upload de imagens',
-      'Rotas protegidas',
-      'Painel administrativo',
-    ],
-    process: [
-      'Definição das entidades',
-      'Modelagem do banco',
-      'Fluxo de autenticação',
-      'Painel administrativo',
-      'Revisão mobile',
-    ],
-    screens: [
-      {
-        label: 'Home',
-        src: '/projects/receitas/home.webp',
-        alt: 'Home do Receitas com chamada principal e receitas em destaque',
-        width: 1440,
-        height: 1200,
-      },
-      {
-        label: 'Busca e filtros',
-        src: '/projects/receitas/library.webp',
-        alt: 'Tela de busca do Receitas com filtros e lista de receitas',
-        width: 1206,
-        height: 1067,
-      },
-      {
-        label: 'Receita',
-        src: '/projects/receitas/recipe.webp',
-        alt: 'Página de receita com ingredientes, preparo e informações da receita',
-        width: 1235,
-        height: 1071,
-      },
-      {
-        label: 'Área do usuário',
-        src: '/projects/receitas/user.webp',
-        alt: 'Área de usuário do Receitas com conteúdo salvo e navegação interna',
-        width: 1440,
-        height: 1200,
-      },
-      {
-        label: 'Painel administrativo',
-        src: '/projects/receitas/admin.webp',
-        alt: 'Painel administrativo do Receitas para gerenciar conteúdo',
-        width: 1150,
-        height: 1060,
-      },
-    ],
-  },
-  {
-    id: 'logic-quest',
-    number: '003',
-    title: 'Logic Quest',
-    year: '2025',
-    image: '/projects/logic-quest/overview.webp',
-    imageAlt: 'Interface do Logic Quest com módulos, progresso e checkpoint',
-    imageWidth: 1440,
-    imageHeight: 900,
-    repository: 'https://github.com/WessYu/Logic-quest',
-    demo: 'https://wessyu.github.io/Logic-quest/',
-    summary: 'Plataforma de estudo com módulos, lições, prática guiada, checkpoints, XP e PWA.',
-    problem:
-      'Transformar estudo de lógica em uma experiência prática, com módulos organizados, progresso salvo no navegador e feedback claro ao concluir checkpoints.',
-    decisions: [
-      'Persistência do progresso no navegador',
-      'Lições em fluxo guiado',
-      'XP liberado por checkpoint',
-      'Adaptação responsiva para estudo no celular',
-    ],
-    implementation:
-      'O produto combina módulos, lições, prática guiada, checkpoints e instalação PWA, salvando progresso e preferências em localStorage.',
-    learnings: ['Modelagem do progresso', 'Feedback de checkpoint', 'Estado local persistente', 'Interface responsiva'],
-    technicalNotes: ['Módulos', 'Lições', 'Prática guiada', 'Checkpoints', 'XP', 'Progresso', 'localStorage', 'PWA'],
-    process: [
-      'Organização dos módulos',
-      'Modelagem do progresso',
-      'Construção das lições',
-      'XP e checkpoints',
-      'Adaptação responsiva',
-    ],
-    screens: [
-      {
-        label: 'Módulos',
-        src: '/projects/logic-quest/overview.webp',
-        alt: 'Visão geral do Logic Quest com estrutura de módulos',
-        width: 1440,
-        height: 900,
-      },
-      {
-        label: 'Lições',
-        src: '/projects/logic-quest/questions.webp',
-        alt: 'Tela de lição e checkpoint do Logic Quest',
-        width: 1440,
-        height: 900,
-      },
-      {
-        label: 'Progresso',
-        src: '/projects/logic-quest/results.webp',
-        alt: 'Tela de resultado e progresso do Logic Quest',
-        width: 1440,
-        height: 900,
-      },
-      {
-        label: 'Mobile',
-        src: '/projects/logic-quest/ranking.webp',
-        alt: 'Versão mobile do Logic Quest com navegação adaptada',
-        width: 390,
-        height: 844,
-      },
-    ],
-  },
-  {
-    id: 'helena',
-    number: '004',
-    title: 'HELENA',
-    year: '2025',
-    image: '/projects/helena/overview.webp',
-    imageAlt: 'Site HELENA com hero jurídico, texto institucional e foto das advogadas',
-    imageWidth: 1440,
-    imageHeight: 900,
-    repository: 'https://github.com/WessYu/HELENA',
-    demo: 'https://wessyu.github.io/HELENA/',
-    summary: 'Site jurídico com formulário de análise, protocolos, contatos, newsletter e painel administrativo.',
-    problem:
-      'Levar um site institucional além da apresentação visual, criando entrada de solicitações, consulta de protocolo e gestão interna dos atendimentos.',
-    decisions: [
-      'Formulário de análise jurídica',
-      'Geração e consulta de protocolo',
-      'Persistência em JSON',
-      'Painel administrativo para atualização de status',
-    ],
-    implementation:
-      'O repositório inclui site estático, servidor local em Python, arquivos JSON para contatos, newsletter e solicitações, além de um painel para acompanhar protocolos.',
-    learnings: ['Fluxo de protocolo', 'Validação de formulários', 'Armazenamento em JSON', 'Área administrativa'],
-    technicalNotes: [
-      'Análise jurídica',
-      'Consulta de protocolo',
-      'Contatos',
-      'Newsletter',
-      'Painel administrativo',
-      'Status do atendimento',
-      'Persistência em JSON',
-    ],
-    process: [
-      'Análise do conteúdo',
-      'Reorganização das áreas jurídicas',
-      'Formulários',
-      'Sistema de protocolos',
-      'Painel administrativo',
-    ],
-    screens: [
-      {
-        label: 'Home',
-        src: '/projects/helena/overview.webp',
-        alt: 'Página inicial do site HELENA',
-        width: 1440,
-        height: 900,
-      },
-      {
-        label: 'Formulários e painel',
-        src: '/projects/helena/after.webp',
-        alt: 'Tela do HELENA com formulários e área administrativa',
-        width: 1440,
-        height: 900,
-      },
-      {
-        label: 'Mobile',
-        src: '/projects/helena/mobile.webp',
-        alt: 'Versão mobile do site HELENA',
-        width: 390,
-        height: 844,
-      },
+      { label: 'Feed', src: '/projects/devmatch/feed.webp', alt: 'Feed do DevMatch com vagas e publicações', width: 1120, height: 900 },
+      { label: 'Workspace da empresa', src: '/projects/devmatch/home.webp', alt: 'Workspace da empresa no DevMatch com pipeline e candidatos', width: 1120, height: 900 },
+      { label: 'Perfil do desenvolvedor', src: '/projects/devmatch/dev.webp', alt: 'Console do desenvolvedor no DevMatch com perfil técnico', width: 1120, height: 900 },
+      { label: 'Matches', src: '/projects/devmatch/contractor.webp', alt: 'Área de matches do DevMatch com shortlist técnica', width: 1120, height: 900 },
+      { label: 'Mensagens', src: '/projects/devmatch/chat.webp', alt: 'Chat do DevMatch conectado ao match', width: 1120, height: 900 },
     ],
   },
   {
     id: 'differenza',
-    number: '005',
+    number: '002',
     title: 'Differenza',
     year: '2024',
     image: '/projects/differenza/after.webp',
@@ -308,7 +165,7 @@ const PROJECTS: ProjectCase[] = [
     imageHeight: 900,
     repository: 'https://github.com/WessYu/differenza-redesign',
     demo: 'https://wessyu.github.io/differenza-redesign/',
-    summary: 'Redesign real com comparação antes e depois, serviços, unidades, agendamento e painel.',
+    summary: 'Redesign real com comparação antes e depois, nova hierarquia, serviços, unidades e experiência responsiva.',
     problem:
       'Revisar uma interface anterior com excesso de ruído visual, baixa hierarquia e navegação pouco clara, mantendo a marca reconhecível.',
     decisions: [
@@ -321,58 +178,22 @@ const PROJECTS: ProjectCase[] = [
       'A nova versão reorganiza hero, serviços, espaço, unidades e chamadas de agendamento, usando fotos reais e uma direção visual mais consistente.',
     learnings: ['Auditoria visual', 'Hierarquia de conteúdo', 'Serviços e unidades', 'Comparação antes e depois'],
     technicalNotes: ['Redesign', 'Site anterior', 'Serviços', 'Unidades', 'Agendamento', 'Painel', 'Antes e depois'],
-    process: [
-      'Auditoria do site original',
-      'Direção visual',
-      'Reorganização do conteúdo',
-      'Implementação',
-      'Comparação antes e depois',
-    ],
+    process: ['Auditoria do site original', 'Direção visual', 'Reorganização do conteúdo', 'Implementação', 'Comparação antes e depois'],
     screens: [
-      {
-        label: 'Antes',
-        src: '/projects/differenza/overview.webp',
-        alt: 'Tela anterior do site Differenza usada como referência de comparação',
-        width: 1900,
-        height: 1080,
-      },
-      {
-        label: 'Depois',
-        src: '/projects/differenza/after.webp',
-        alt: 'Nova página inicial do Differenza',
-        width: 1440,
-        height: 900,
-      },
-      {
-        label: 'Serviços',
-        src: '/projects/differenza/services.webp',
-        alt: 'Seção de serviços do redesign Differenza',
-        width: 1440,
-        height: 900,
-      },
-      {
-        label: 'O espaço',
-        src: '/projects/differenza/experience.webp',
-        alt: 'Seção sobre a experiência e o espaço do Differenza',
-        width: 1440,
-        height: 900,
-      },
-      {
-        label: 'Unidades',
-        src: '/projects/differenza/units.webp',
-        alt: 'Seção de unidades do redesign Differenza',
-        width: 1440,
-        height: 900,
-      },
+      { label: 'Antes', src: '/projects/differenza/overview.webp', alt: 'Tela anterior do site Differenza usada como referência de comparação', width: 1900, height: 1080 },
+      { label: 'Depois', src: '/projects/differenza/after.webp', alt: 'Nova página inicial do Differenza', width: 1440, height: 900 },
+      { label: 'Serviços', src: '/projects/differenza/services.webp', alt: 'Seção de serviços do redesign Differenza', width: 1440, height: 900 },
+      { label: 'O espaço', src: '/projects/differenza/experience.webp', alt: 'Seção sobre a experiência e o espaço do Differenza', width: 1440, height: 900 },
+      { label: 'Unidades', src: '/projects/differenza/units.webp', alt: 'Seção de unidades do redesign Differenza', width: 1440, height: 900 },
     ],
   },
 ]
 
 const EVOLUTION = [
-  { year: '2023', items: ['HTML', 'CSS', 'Primeiros projetos'] },
-  { year: '2024', items: ['JavaScript', 'React', 'Interfaces responsivas'] },
-  { year: '2025', items: ['TypeScript', 'Produtos com estado', 'Fluxos completos'] },
-  { year: '2026', items: ['Next.js', 'Prisma', 'PostgreSQL'] },
+  { year: '2023', items: ['HTML + CSS', 'JavaScript', 'Primeiros produtos web'] },
+  { year: '2024', items: ['React', 'Interfaces responsivas', 'UI/UX aplicado ao código'] },
+  { year: '2025', items: ['TypeScript', 'Next.js', 'Produtos com fluxos completos'] },
+  { year: '2026', items: ['Node.js + PostgreSQL', 'Developer Tooling + CI', 'Performance + AppSec'] },
 ]
 
 export default function App() {
@@ -398,14 +219,13 @@ export default function App() {
           if (entry.isIntersecting) entry.target.classList.add('is-visible')
         })
       },
-      { threshold: 0.16, rootMargin: '0px 0px -80px 0px' }
+      { threshold: 0.16, rootMargin: '0px 0px -80px 0px' },
     )
 
     revealItems.forEach((item) => observer.observe(item))
 
     let scrollFrame = 0
-
-    function updateParallax() {
+    const updateParallax = () => {
       scrollFrame = 0
       const y = window.scrollY
       parallaxItems.forEach((item) => {
@@ -413,8 +233,7 @@ export default function App() {
         item.style.setProperty('--parallax-y', `${Math.round(y * speed)}px`)
       })
     }
-
-    function onScroll() {
+    const onScroll = () => {
       if (scrollFrame || isSmallScreen) return
       scrollFrame = window.requestAnimationFrame(updateParallax)
     }
@@ -439,9 +258,9 @@ export default function App() {
   return (
     <main className="archiveShell" id="top">
       <nav className="archiveNav" aria-label="Navegação principal">
-        <a href="#top">ARQUIVO WESSYU</a>
+        <a href="#top">WESSYU</a>
         <div>
-          <a href="#top">Arquivo</a>
+          <a href="#toolkit">Tooling</a>
           <a href="#projects">Projetos</a>
           <a href="#sobre">Sobre</a>
           <a href="#contact">Contato</a>
@@ -449,35 +268,50 @@ export default function App() {
       </nav>
 
       <section className="intro" aria-labelledby="intro-title">
-        <p className="cornerMark">ARQUIVO WESSYU</p>
+        <p className="cornerMark">WESSYU / SOFTWARE</p>
         <div className="introCenter" data-reveal>
-          <h1 id="intro-title">TRABALHOS SELECIONADOS</h1>
-          <p>Projetos criados durante minha transição do design para o desenvolvimento.</p>
-          <span>2023 — 2026</span>
+          <h1 id="intro-title">Software Developer</h1>
+          <p>
+            Minha base é front-end. Hoje construo produtos web e as ferramentas ao redor deles: governança de código,
+            performance, segurança de aplicações e gates de CI.
+          </p>
+          <span>React · TypeScript · Node.js · PostgreSQL</span>
         </div>
         <p className="introRole">
-          Designer desde 2020.
+          Front-end como base.
           <br />
-          Desenvolvedor front-end desde 2023.
+          Developer tooling como aprofundamento.
           <br />
-          Construo interfaces e aplicações web.
+          Produto, performance e AppSec.
         </p>
       </section>
 
       <section className="why" aria-labelledby="why-title">
         <div className="sectionTitle" data-reveal>
-          <p className="metaLine">POR QUÊ</p>
-          <h2 id="why-title">Não comecei pela programação.</h2>
+          <p className="metaLine">TRAJETÓRIA</p>
+          <h2 id="why-title">Comecei pela interface. Hoje sigo o problema até a engenharia.</h2>
         </div>
         <p data-reveal>
-          Comecei pelo design e aprendi desenvolvimento para transformar minhas ideias em produtos reais.
+          Design continua sendo a origem do meu olhar para hierarquia, clareza e experiência. No código, esse cuidado
+          evoluiu para component APIs, análise estática, medições reais no navegador, backend, segurança e automação em CI.
         </p>
       </section>
 
+      <EngineeringToolkit />
+
       <section className="work" id="projects" aria-label="Projetos selecionados">
+        {ENGINEERING_TOOLS.map((tool) => (
+          <ToolScene key={tool.id} tool={tool} />
+        ))}
+
         {PROJECTS.map((project) => (
           <article className="projectScene" key={project.id}>
-            <button className="projectImageButton" type="button" onClick={() => openCase(project.id)} aria-label={`Abrir estudo de caso ${project.title}`}>
+            <button
+              className="projectImageButton"
+              type="button"
+              onClick={() => openCase(project.id)}
+              aria-label={`Abrir estudo de caso ${project.title}`}
+            >
               <img
                 src={project.image}
                 alt={project.imageAlt}
@@ -490,9 +324,7 @@ export default function App() {
               />
             </button>
             <div className="projectLabel" data-reveal>
-              <span>
-                {project.number} / {project.year}
-              </span>
+              <span>{project.number} / {project.year}</span>
               <h2>{project.title}</h2>
               <p>{project.summary}</p>
             </div>
@@ -530,9 +362,7 @@ export default function App() {
         <div className="technicalNotes" data-reveal>
           <p className="metaLine">Notas técnicas</p>
           <div className="noteGrid">
-            {activeProject.technicalNotes.map((note) => (
-              <span key={note}>{note}</span>
-            ))}
+            {activeProject.technicalNotes.map((note) => <span key={note}>{note}</span>)}
           </div>
         </div>
 
@@ -558,27 +388,21 @@ export default function App() {
         </section>
 
         <div className="caseActions" data-reveal>
-          <a href={activeProject.demo} target="_blank" rel="noreferrer">
-            Ver projeto
-          </a>
-          <a href={activeProject.repository} target="_blank" rel="noreferrer">
-            Ver código
-          </a>
+          <a href={activeProject.demo} target="_blank" rel="noreferrer">Ver projeto</a>
+          <a href={activeProject.repository} target="_blank" rel="noreferrer">Ver código</a>
         </div>
       </section>
 
       <section className="evolution" id="evolution" aria-labelledby="evolution-title">
         <div className="sectionTitle" data-reveal>
           <p className="metaLine">Evolução</p>
-          <h2 id="evolution-title">Uma trajetória simples, acumulativa e prática.</h2>
+          <h2 id="evolution-title">Uma trajetória acumulativa: interface, produto e engenharia.</h2>
         </div>
         <div className="evolutionGrid">
           {EVOLUTION.map((period) => (
             <article className="yearBlock" key={period.year} data-reveal>
               <h3>{period.year}</h3>
-              {period.items.map((item) => (
-                <p key={item}>{item}</p>
-              ))}
+              {period.items.map((item) => <p key={item}>{item}</p>)}
             </article>
           ))}
         </div>
@@ -587,31 +411,93 @@ export default function App() {
       <section className="person" id="sobre" aria-labelledby="person-title">
         <div className="sectionTitle" data-reveal>
           <p className="metaLine">Sobre</p>
-          <h2 id="person-title">Designer desde 2020. Desenvolvedor front-end desde 2023.</h2>
+          <h2 id="person-title">Front-end é minha base. Engenharia de produto é a direção.</h2>
         </div>
         <p data-reveal>
           Caxias do Sul, RS — Brasil.
           <br />
-          Focado em interfaces, aplicações web e produtos digitais.
+          Trabalho principalmente com React, Next.js e TypeScript. Nos projetos mais recentes, aprofundei Node.js,
+          PostgreSQL, Prisma, Fastify, Playwright, AST tooling, performance engineering e application security.
         </p>
       </section>
 
       <footer className="contact" id="contact">
-        <p>Estou buscando oportunidades para trabalhar com front-end e produtos digitais.</p>
+        <p>
+          Busco oportunidades como Software Developer, Front-End ou Full-Stack Júnior para contribuir em produtos reais
+          e continuar crescendo com revisão de código, arquitetura, performance e segurança.
+        </p>
         <div>
-          <a href={LINKS.github} target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <a href={LINKS.linkedin} target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
+          <a href={LINKS.github} target="_blank" rel="noreferrer">GitHub</a>
+          <a href={LINKS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
           <a href={LINKS.email}>E-mail</a>
-          <a href={LINKS.resume} download>
-            Baixar currículo
-          </a>
+          <a href={LINKS.resume} download>Baixar currículo</a>
         </div>
       </footer>
     </main>
+  )
+}
+
+function EngineeringToolkit() {
+  return (
+    <section className="engineeringToolkit" id="toolkit" aria-labelledby="toolkit-title">
+      <div className="engineeringToolkitLead" data-reveal>
+        <div>
+          <p className="metaLine">ENGINEERING TOOLKIT</p>
+          <h2 id="toolkit-title">Quatro ferramentas. Uma linha de engenharia.</h2>
+        </div>
+        <p>
+          Componentes, performance e segurança continuam separados onde precisam ser. O NEXUS conecta esses sinais em
+          um único gate sem esconder a evidência produzida por cada engine.
+        </p>
+      </div>
+      <div className="engineeringToolkitGrid">
+        {ENGINEERING_TOOLS.map((tool) => (
+          <article className="engineeringTool" key={tool.id} data-reveal>
+            <a className="engineeringToolIcon" href={tool.repository} target="_blank" rel="noreferrer" aria-label={`Abrir ${tool.title} no GitHub`}>
+              <img src={tool.icon} alt="" width="84" height="84" loading="lazy" decoding="async" />
+            </a>
+            <p>{tool.category}</p>
+            <h3>{tool.title}</h3>
+            <span>{tool.stack}</span>
+            <small>{tool.toolkitSummary}</small>
+            <div>
+              <a href={tool.repository} target="_blank" rel="noreferrer">GitHub ↗</a>
+              {tool.npm && <a href={tool.npm} target="_blank" rel="noreferrer">npm ↗</a>}
+              {tool.demo && <a href={tool.demo} target="_blank" rel="noreferrer">Demo ↗</a>}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  )
+}
+
+function ToolScene({ tool }: { tool: EngineeringTool }) {
+  return (
+    <article className={`projectScene projectSceneSpotlight ${tool.id === 'nexus' ? 'nexusSpotlight' : ''} ${tool.id === 'velocity' ? 'velocitySpotlight' : ''} ${tool.id === 'specter' ? 'specterSpotlight' : ''}`}>
+      <button
+        className="projectImageButton"
+        type="button"
+        aria-label={`Abrir repositório do ${tool.title}`}
+        onClick={() => window.open(tool.demo || tool.repository, '_blank', 'noopener,noreferrer')}
+      >
+        <img src={tool.image} alt={tool.imageAlt} width="1292" height="660" decoding="async" loading="lazy" />
+      </button>
+      <div className="projectLabel componentVaultLabel is-visible" data-reveal>
+        <span className="componentVaultKicker">{tool.kicker}</span>
+        <h2>{tool.title}</h2>
+        {tool.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <div className="componentVaultActions">
+          {tool.demo && <a href={tool.demo} target="_blank" rel="noreferrer">Ver produto ↗</a>}
+          <a href={tool.repository} target="_blank" rel="noreferrer">Ver código ↗</a>
+          {tool.npm && <a href={tool.npm} target="_blank" rel="noreferrer">Ver npm ↗</a>}
+        </div>
+      </div>
+      <div className="componentVaultStamp" aria-hidden="true">
+        <span>{tool.category}</span>
+        <b>{tool.stamp}</b>
+      </div>
+    </article>
   )
 }
 
@@ -628,11 +514,7 @@ function ListBlock({ title, items }: { title: string; items: string[] }) {
   return (
     <article className="listBlock" data-reveal>
       <h3>{title}</h3>
-      <div>
-        {items.map((item) => (
-          <p key={item}>{item}</p>
-        ))}
-      </div>
+      <div>{items.map((item) => <p key={item}>{item}</p>)}</div>
     </article>
   )
 }
