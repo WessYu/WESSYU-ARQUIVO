@@ -1,70 +1,53 @@
-import { useEffect, useState } from 'react'
-import { createPortal } from 'react-dom'
-
 type Technology = {
   name: string
   category: string
-  icon: string
+  iconId: string
 }
 
 const TECHNOLOGIES: Technology[] = [
-  { name: 'React', category: 'Front-end', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg' },
-  { name: 'TypeScript', category: 'Front-end', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
-  { name: 'JavaScript', category: 'Front-end', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg' },
-  { name: 'Next.js', category: 'Front-end', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
-  { name: 'HTML5', category: 'Interface', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg' },
-  { name: 'CSS3', category: 'Interface', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg' },
-  { name: 'Tailwind CSS', category: 'Interface', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
-  { name: 'Vite', category: 'Ferramentas', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vitejs/vitejs-original.svg' },
-  { name: 'Node.js', category: 'Back-end', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
-  { name: 'Prisma', category: 'Dados', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/prisma/prisma-original.svg' },
-  { name: 'PostgreSQL', category: 'Dados', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-  { name: 'Convex', category: 'Back-end', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/database/database-original.svg' },
-  { name: 'Playwright', category: 'Qualidade', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg' },
-  { name: 'Git', category: 'Ferramentas', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg' },
-  { name: 'GitHub', category: 'Ferramentas', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
-  { name: 'Figma', category: 'Design', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg' },
+  { name: 'React', category: 'Front-end', iconId: 'react' },
+  { name: 'TypeScript', category: 'Front-end', iconId: 'typescript' },
+  { name: 'Next.js', category: 'Front-end', iconId: 'nextjs' },
+  { name: 'Tailwind CSS', category: 'Interface', iconId: 'tailwindcss' },
+  { name: 'Node.js', category: 'Back-end', iconId: 'nodejs' },
+  { name: 'Fastify', category: 'Back-end', iconId: 'fastify' },
+  { name: 'PostgreSQL', category: 'Dados', iconId: 'postgresql' },
+  { name: 'Prisma', category: 'Dados', iconId: 'prisma' },
+  { name: 'Playwright', category: 'Qualidade', iconId: 'playwright' },
+  { name: 'GitHub Actions', category: 'CI / CD', iconId: 'githubactions' },
+  { name: 'Git', category: 'Ferramentas', iconId: 'git' },
+  { name: 'Figma', category: 'Design', iconId: 'figma' },
 ]
 
 export function TechStack() {
-  const [target, setTarget] = useState<HTMLElement | null>(null)
-
-  useEffect(() => {
-    const aboutSection = document.querySelector<HTMLElement>('#sobre')
-    if (!aboutSection?.parentElement) return
-
-    const container = document.createElement('div')
-    container.id = 'tech-stack-portal'
-    aboutSection.parentElement.insertBefore(container, aboutSection)
-    setTarget(container)
-
-    return () => container.remove()
-  }, [])
-
-  if (!target) return null
-
-  return createPortal(
+  return (
     <section className="techStack" id="tecnologias" aria-labelledby="tech-stack-title">
-      <div className="sectionTitle is-visible">
-        <p className="metaLine">Tecnologias</p>
-        <h2 id="tech-stack-title">Ferramentas que uso para transformar ideias em produtos.</h2>
+      <div className="techStackLead" data-reveal>
+        <div>
+          <p className="metaLine">CORE STACK</p>
+          <h2 id="tech-stack-title">Stack que uso no produto e na engenharia.</h2>
+        </div>
+        <p>
+          HTML, CSS e JavaScript são a base. Aqui estão as tecnologias que mais aparecem nos projetos que estou
+          construindo hoje — do front-end ao backend, testes e entrega.
+        </p>
       </div>
 
-      <div className="techGrid is-visible">
-        {TECHNOLOGIES.map((technology, index) => (
+      <div className="techGrid" data-reveal>
+        {TECHNOLOGIES.map((technology) => (
           <article className="techCard" key={technology.name}>
-            <div className="techIconFrame">
-              <img src={technology.icon} alt="" width="44" height="44" loading="lazy" decoding="async" />
+            <div className="techIconFrame" aria-hidden="true">
+              <svg viewBox="0 0 128 128" focusable="false">
+                <use href={`/tech-icons.svg#${technology.iconId}`} />
+              </svg>
             </div>
             <div>
               <span>{technology.category}</span>
               <h3>{technology.name}</h3>
             </div>
-            <b aria-hidden="true">{String(index + 1).padStart(2, '0')}</b>
           </article>
         ))}
       </div>
-    </section>,
-    target,
+    </section>
   )
 }
