@@ -1,0 +1,134 @@
+name: Portfolio Proof
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  proof:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Start local production preview
+        run: |
+          npm run preview -- --host 127.0.0.1 --port 4173 > /tmp/portfolio-vite.log 2>&1 &
+          echo $! > /tmp/portfolio-vite.pid
+
+      - name: Wait for preview
+        run: |
+          node <<'NODE'
+          const url = 'http://127.0.0.1:4173/'
+          const deadline = Date.now() + 30000
+          while (Date.now() < deadline) {
+            try {
+              const response = await fetch(url)
+              if (response.ok) {
+                console.log('Preview ready:', response.status)
+                process.exit(0)
+              }
+            } catch {}
+            await new Promise((resolve) => setTimeout(resolve, 500))
+          }
+          console.error('Preview did not become ready in time')
+          process.exit(1)
+          NODE
+
+      - name: Capture real screenshots
+        shell: bash
+        run: |
+          mkdir -p artifacts/screenshots
+          CHROME="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          echo "Chrome: $CHROME"
+
+          "$CHROME"             --headless=new             --no-sandbox             --disable-gpu             --hide-scrollbars             --window-size=1440,900             --virtual-time-budget=2500             --screenshot=artifacts/screenshots/hero-desktop.png             http://127.0.0.1:4173/
+
+          "$CHROME"             --headless=new             --no-sandbox             --disable-gpu             --hide-scrollbars             --window-size=1440,900             --virtual-time-budget=2500             --screenshot=artifacts/screenshots/toolkit-desktop.png             http://127.0.0.1:4173/#toolkit
+
+          "$CHROME"             --headless=new             --no-sandbox             --disable-gpu             --hide-scrollbars             --window-size=1440,900             --virtual-time-budget=2500             --screenshot=artifacts/screenshots/stack-desktop.png             http://127.0.0.1:4173/#tecnologias
+
+          "$CHROME"             --headless=new             --no-sandbox             --disable-gpu             --hide-scrollbars             --window-size=390,844             --force-device-scale-factor=1             --virtual-time-budget=2500             --screenshot=artifacts/screenshots/hero-mobile.png             http://127.0.0.1:4173/
+
+      - name: Lighthouse mobile
+        run: |
+          mkdir -p artifacts/lighthouse
+          npx --yes lighthouse@12.8.2 http://127.0.0.1:4173/             --chrome-flags="--headless=new --no-sandbox --disable-gpu"             --output=json             --output=html             --output-path=artifacts/lighthouse/mobile             --quiet
+
+      - name: Lighthouse desktop
+        run: |
+          npx --yes lighthouse@12.8.2 http://127.0.0.1:4173/             --preset=desktop             --chrome-flags="--headless=new --no-sandbox --disable-gpu"             --output=json             --output=html             --output-path=artifacts/lighthouse/desktop             --quiet
+
+      - name: Summarize Lighthouse
+        run: |
+          node <<'NODE'
+          import fs from 'node:fs'
+
+          const reports = [
+            ['Mobile', 'artifacts/lighthouse/mobile.report.json'],
+            ['Desktop', 'artifacts/lighthouse/desktop.report.json'],
+          ]
+
+          const pct = (score) => Math.round((score ?? 0) * 100)
+          const rows = []
+
+          for (const [label, file] of reports) {
+            const report = JSON.parse(fs.readFileSync(file, 'utf8'))
+            const categories = report.categories
+            const audits = report.audits
+            rows.push({
+              label,
+              performance: pct(categories.performance.score),
+              accessibility: pct(categories.accessibility.score),
+              bestPractices: pct(categories['best-practices'].score),
+              seo: pct(categories.seo.score),
+              fcp: audits['first-contentful-paint']?.displayValue ?? '—',
+              lcp: audits['largest-contentful-paint']?.displayValue ?? '—',
+              cls: audits['cumulative-layout-shift']?.displayValue ?? '—',
+              tbt: audits['total-blocking-time']?.displayValue ?? '—',
+              si: audits['speed-index']?.displayValue ?? '—',
+            })
+          }
+
+          const markdown = [
+            '# Portfolio Lighthouse',
+            '',
+            '| Mode | Performance | Accessibility | Best Practices | SEO | FCP | LCP | CLS | TBT | Speed Index |',
+            '| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |',
+            ...rows.map((r) =>
+              `| ${r.label} | ${r.performance} | ${r.accessibility} | ${r.bestPractices} | ${r.seo} | ${r.fcp} | ${r.lcp} | ${r.cls} | ${r.tbt} | ${r.si} |`
+            ),
+            '',
+            '> Lighthouse is lab data from the built portfolio. Real-user Core Web Vitals require field data.',
+          ].join('\n')
+
+          fs.writeFileSync('artifacts/lighthouse/summary.md', markdown)
+          fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, markdown + '\n')
+          console.log(markdown)
+          NODE
+
+      - name: Upload proof artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-proof
+          path: artifacts/
+          if-no-files-found: error
+          retention-days: 14
