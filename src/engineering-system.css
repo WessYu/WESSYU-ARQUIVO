@@ -281,3 +281,40 @@
     transition: none;
   }
 }
+
+
+/* Final recruiter-facing hero: content lives in React, not generated CSS. */
+.introCenter::before {
+  content: 'SOFTWARE DEVELOPER / PRODUCT ENGINEERING';
+}
+
+.intro h1 {
+  color: #f2f0ea;
+  font-size: clamp(3.25rem, 7vw, 7.2rem);
+  line-height: .9;
+  letter-spacing: -.065em;
+}
+
+.intro h1::after {
+  content: none;
+}
+
+.introCenter {
+  width: min(980px, 100%);
+}
+
+.introCenter > p {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+@media (max-width: 720px) {
+  .intro h1 {
+    font-size: clamp(3rem, 15vw, 5.2rem);
+    line-height: .9;
+  }
+
+  .intro h1::after {
+    content: none;
+  }
+}

@@ -6,6 +6,30 @@ type ReelDetail = {
 }
 
 const PROJECT_DETAILS: Record<string, ReelDetail> = {
+  nexus: {
+    type: 'ENGINEERING ORCHESTRATION',
+    role: 'QUALITY + PERFORMANCE + SECURITY',
+    stack: ['NODE.JS', 'JSON SCHEMA', 'CLI', 'CI'],
+    highlights: ['THREE-ENGINE ORCHESTRATION', 'NORMALIZED REPORT CONTRACT', 'REPOSITORY-LEVEL CI GATE'],
+  },
+  'component vault': {
+    type: 'DEV TOOL / COMPONENT GOVERNANCE',
+    role: 'AST ANALYSIS + CLI + AUTOMATION',
+    stack: ['NEXT.JS', 'TYPESCRIPT', 'CONVEX', 'CI'],
+    highlights: ['AST-BASED GOVERNANCE', 'NPM CLI + AUTOFIX', 'SEMANTIC RULES + CI'],
+  },
+  velocity: {
+    type: 'PERFORMANCE ENGINEERING / DEV TOOL',
+    role: 'MEASUREMENT + REGRESSION CONTROL',
+    stack: ['NODE.JS', 'TYPESCRIPT', 'CHROMIUM', 'CLI'],
+    highlights: ['PERFORMANCE DIAGNOSTICS', 'BENCHMARK + COMPARE', 'SAFE OPTIMIZE + VERIFY'],
+  },
+  specter: {
+    type: 'DEFENSIVE APPSEC / DEV TOOL',
+    role: 'SOURCE TO PRODUCTION SECURITY',
+    stack: ['TYPESCRIPT', 'FASTIFY', 'PRISMA', 'APPSEC'],
+    highlights: ['STATIC + DEPENDENCY SCANNING', 'AUTHORIZED ACTIVE TESTING', 'REGRESSION + CI SECURITY GATE'],
+  },
   receitas: {
     type: 'PRODUTO FULL STACK',
     role: 'DESIGN + DESENVOLVIMENTO',
