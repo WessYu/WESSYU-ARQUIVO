@@ -318,3 +318,62 @@
     content: none;
   }
 }
+
+
+/* Visual pass: clearer toolkit hierarchy without changing the editorial identity. */
+.engineeringToolkitLead {
+  align-items: start;
+}
+
+.engineeringToolkitLead h2 {
+  max-width: 720px;
+  font-size: clamp(2.9rem, 4.45vw, 5rem);
+  line-height: .95;
+  letter-spacing: -.055em;
+}
+
+.engineeringToolkitLead > p {
+  max-width: 520px;
+  margin-top: clamp(58px, 5.2vw, 82px);
+  color: rgba(242, 240, 234, .7);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.engineeringTool > p {
+  color: rgba(242, 240, 234, .48);
+  font-size: .66rem;
+}
+
+.engineeringTool > span {
+  color: rgba(242, 240, 234, .76);
+  font-size: .82rem;
+}
+
+.engineeringTool > small {
+  min-height: 44px;
+  margin-top: 12px;
+  color: rgba(242, 240, 234, .6);
+  font-size: .81rem;
+}
+
+.engineeringTool > div {
+  margin-top: 17px;
+}
+
+.engineeringTool > div a {
+  color: rgba(242, 240, 234, .76);
+  font-size: .72rem;
+}
+
+@media (max-width: 980px) {
+  .engineeringToolkitLead > p {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .engineeringToolkitLead h2 {
+    font-size: clamp(2.45rem, 11vw, 3.9rem);
+  }
+}
