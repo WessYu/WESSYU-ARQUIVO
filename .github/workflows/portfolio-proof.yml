@@ -84,6 +84,25 @@ jobs:
           for (const shot of shots) {
             const page = await browser.newPage({ viewport: shot.viewport })
             await page.goto(base, { waitUntil: 'networkidle' })
+            await page.addStyleTag({
+              content: `
+                html { scroll-behavior: auto !important; }
+                .engineeringToolkit,
+                .projectScene,
+                .caseStudy,
+                .evolution,
+                .techStack,
+                .person,
+                .contact {
+                  content-visibility: visible !important;
+                  contain-intrinsic-size: auto !important;
+                }
+                [data-reveal] {
+                  opacity: 1 !important;
+                  transform: none !important;
+                }
+              `,
+            })
             await page.evaluate(() => document.fonts?.ready)
             const target = page.locator(shot.selector)
             await target.scrollIntoViewIfNeeded()
