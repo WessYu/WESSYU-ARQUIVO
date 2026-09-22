@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620">
+  <rect width="1440" height="620" fill="#070707"/>
+  <rect x="24" y="24" width="1392" height="572" rx="18" fill="#0d0d0d" stroke="#292929"/>
+  <circle cx="56" cy="54" r="6" fill="#5a5a5a"/>
+  <circle cx="78" cy="54" r="6" fill="#5a5a5a"/>
+  <circle cx="100" cy="54" r="6" fill="#5a5a5a"/>
+  <text x="64" y="92" fill="#f4f1ea" font-size="20" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">VELOCITY · FINDINGS → SCORE → GATE</text>
+  <text x="1376" y="92" fill="#6f6f6f" text-anchor="end" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">real problematic API fixture · CI proof</text>
+  <text x="64" y="126" fill="#f4f1ea" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">$ velocity analyze examples/problematic-api --no-color</text>
+  <text x="64" y="152" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">Velocity performance risk report</text>
+  <text x="64" y="178" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">problematic-api · JavaScript</text>
+  <text x="64" y="204" fill="#d9b0b0" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">78/100 heuristic health score (formula v1) · 1 files · 14 lines</text>
+  <text x="64" y="230" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">server.js</text>
+  <text x="64" y="256" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">× 4:25 readFileSync blocks the Node.js event loop.</text>
+  <text x="64" y="282" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">▲ 8:20 Await inside this loop may serialize independent operations.</text>
+  <text x="64" y="308" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">▲ 11:3 This interval handle is discarded and cannot be cleaned up directly.</text>
+  <text x="64" y="334" fill="#d9b0b0" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">1 errors · 2 warnings · 0 info</text>
+  <text x="64" y="386" fill="#f4f1ea" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">$ velocity check examples/problematic-api --min-score 90 --no-color</text>
+  <text x="64" y="412" fill="#d9b0b0" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">78/100 heuristic health score (formula v1) · 1 files · 14 lines</text>
+  <text x="64" y="438" fill="#d9b0b0" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">[exit=1] regression gate expected to block this fixture</text>
+</svg>
