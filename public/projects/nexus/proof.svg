@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="620" viewBox="0 0 1440 620">
+  <rect width="1440" height="620" fill="#070707"/>
+  <rect x="24" y="24" width="1392" height="572" rx="18" fill="#0d0d0d" stroke="#292929"/>
+  <circle cx="56" cy="54" r="6" fill="#5a5a5a"/>
+  <circle cx="78" cy="54" r="6" fill="#5a5a5a"/>
+  <circle cx="100" cy="54" r="6" fill="#5a5a5a"/>
+  <text x="64" y="92" fill="#f4f1ea" font-size="20" font-weight="700" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">NEXUS · THREE-ENGINE GATE</text>
+  <text x="1376" y="92" fill="#6f6f6f" text-anchor="end" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">real fixture · real engines · CI proof</text>
+  <text x="64" y="126" fill="#f4f1ea" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" xml:space="preserve">$ npx nexus check test/fixtures/healthy-project --config .proof.nexus.config.json</text>
+  <text x="64" y="152" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">NEXUS</text>
+  <text x="64" y="178" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">Quality · Performance · Security</text>
+  <text x="64" y="256" fill="#b8d8b8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">✓ quality      completed · 0 findings</text>
+  <text x="64" y="282" fill="#b8d8b8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">✓ performance  completed 100/100 · 0 findings</text>
+  <text x="64" y="308" fill="#b8d8b8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">✓ security     completed 100/100 · 0 findings</text>
+  <text x="64" y="360" fill="#a8a8a8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">CRITICAL 0  HIGH 0  MEDIUM 0  LOW 0  INFO 0</text>
+  <text x="64" y="412" fill="#b8d8b8" font-size="17" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace">✓ ENGINEERING GATE PASSED</text>
+</svg>
