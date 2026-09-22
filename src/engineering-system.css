@@ -377,3 +377,97 @@
     font-size: clamp(2.45rem, 11vw, 3.9rem);
   }
 }
+
+
+/* Recruiter proof pass: real CLI evidence is the visual, not decorative artwork. */
+.projectSceneSpotlight .projectImageButton,
+.projectSceneSpotlight.is-reel-active .projectImageButton {
+  display: grid;
+  place-items: start center;
+  padding: clamp(84px, 9vh, 118px) clamp(26px, 6vw, 96px) clamp(280px, 31vh, 350px);
+  background: #020202;
+}
+
+.projectSceneSpotlight .projectImageButton .toolProofImage,
+.projectSceneSpotlight.is-reel-active .projectImageButton .toolProofImage {
+  width: min(1220px, 92vw);
+  height: auto;
+  max-height: 60vh;
+  object-fit: contain;
+  object-position: top center;
+  transform: none;
+  filter: none;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 18px;
+  box-shadow: 0 34px 110px rgba(0,0,0,.62);
+}
+
+.projectSceneSpotlight .projectImageButton:hover .toolProofImage,
+.projectSceneSpotlight .projectImageButton:focus-visible .toolProofImage,
+.projectSceneSpotlight.is-reel-active .projectImageButton .toolProofImage {
+  transform: translateY(-2px) scale(1.008);
+  filter: none;
+}
+
+.toolProofSummary {
+  width: min(620px, 100%);
+  margin-top: 22px;
+  padding: 14px 16px;
+  border-left: 2px solid rgba(184,216,184,.7);
+  background: rgba(7,7,7,.52);
+  backdrop-filter: blur(10px);
+}
+
+.toolProofSummary span {
+  display: block;
+  color: rgba(184,216,184,.78);
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+.toolProofSummary strong {
+  display: block;
+  margin-top: 7px;
+  color: rgba(242,240,234,.9);
+  font-size: .82rem;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+@media (max-width: 980px) {
+  .projectSceneSpotlight .projectImageButton,
+  .projectSceneSpotlight.is-reel-active .projectImageButton {
+    padding-inline: 24px;
+    padding-bottom: 330px;
+  }
+
+  .projectSceneSpotlight .projectImageButton .toolProofImage,
+  .projectSceneSpotlight.is-reel-active .projectImageButton .toolProofImage {
+    width: 96vw;
+    max-height: 54vh;
+  }
+}
+
+@media (max-width: 720px) {
+  .projectSceneSpotlight {
+    min-height: 108vh;
+  }
+
+  .projectSceneSpotlight .projectImageButton,
+  .projectSceneSpotlight.is-reel-active .projectImageButton {
+    padding: 88px 12px 390px;
+  }
+
+  .projectSceneSpotlight .projectImageButton .toolProofImage,
+  .projectSceneSpotlight.is-reel-active .projectImageButton .toolProofImage {
+    width: 100%;
+    max-height: 46vh;
+    border-radius: 10px;
+  }
+
+  .toolProofSummary {
+    margin-top: 18px;
+    padding: 12px 13px;
+  }
+}
