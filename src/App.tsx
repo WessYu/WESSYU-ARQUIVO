@@ -22,6 +22,8 @@ type EngineeringTool = {
   category: string
   stack: string
   toolkitSummary: string
+  evidence: string
+  proofUrl: string
   paragraphs: string[]
   stamp: string
 }
@@ -32,13 +34,15 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     title: 'NEXUS',
     kicker: 'ENGINEERING ORCHESTRATION',
     icon: '/projects/toolkit/nexus.svg',
-    image: '/projects/nexus/overview.svg',
-    imageAlt: 'NEXUS conectando qualidade, performance e segurança em um único engineering gate',
+    image: '/projects/nexus/proof.svg',
+    imageAlt: 'Execução real do NEXUS com Component Vault, Velocity e SPECTER concluindo o engineering gate',
     repository: 'https://github.com/WessYu/NEXUS',
     npm: 'https://www.npmjs.com/package/@wess2001/nexus',
     category: 'ORCHESTRATION',
     stack: 'Quality · Performance · Security',
     toolkitSummary: 'Um engineering gate para os três motores.',
+    evidence: '3 engines concluídos · performance 100/100 · security 100/100 · gate aprovado',
+    proofUrl: 'https://github.com/WessYu/NEXUS/actions/runs/35720799647',
     paragraphs: [
       'CLI que orquestra Component Vault, Velocity e SPECTER, normaliza os resultados em um contrato comum e aplica uma política única de repositório.',
       'Qualidade, performance e segurança continuam como engines independentes, mas podem rodar em um único check antes do merge ou deploy.',
@@ -50,14 +54,16 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     title: 'Component Vault',
     kicker: 'DEV TOOL / COMPONENT GOVERNANCE',
     icon: '/projects/toolkit/component-vault.svg',
-    image: '/projects/component-vault/overview.svg',
-    imageAlt: 'Component Vault com workspace de componentes, governança, análise e developer tooling',
+    image: '/projects/component-vault/proof.svg',
+    imageAlt: 'Execução real do Component Vault detectando CV006, aplicando fix e validando um rescan limpo',
     repository: 'https://github.com/WessYu/component-vault',
     npm: 'https://www.npmjs.com/package/@wess2001/component-vault',
     demo: 'https://component-vault-dun.vercel.app',
     category: 'QUALITY / GOVERNANCE',
     stack: 'AST · Components · CI',
     toolkitSummary: 'Governança de componentes e design system como código.',
+    evidence: '3 violações CV006 → 8 edits → rescan limpo → build verde',
+    proofUrl: 'https://github.com/WessYu/component-vault/actions/runs/35720805556',
     paragraphs: [
       'Plataforma de componentes com um motor de governança baseado em TypeScript AST para TypeScript, TSX, JavaScript e JSX.',
       'A CLI reúne análise, baseline, PR reporting, autofix e automação em CI, com um workspace Next.js/React para organizar e revisar componentes.',
@@ -69,13 +75,15 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     title: 'Velocity',
     kicker: 'DEV TOOL / PERFORMANCE ENGINEERING',
     icon: '/projects/toolkit/velocity.svg',
-    image: '/projects/velocity/overview.svg',
-    imageAlt: 'Velocity apresentado como CLI de diagnóstico, benchmark e otimização de performance',
+    image: '/projects/velocity/proof.svg',
+    imageAlt: 'Execução real do Velocity detectando riscos de performance, calculando score e bloqueando o gate',
     repository: 'https://github.com/WessYu/velocity',
     npm: 'https://www.npmjs.com/package/@wess2001/velocity',
     category: 'PERFORMANCE',
     stack: 'Build · Browser · Benchmark',
     toolkitSummary: 'Evidência de performance e controle de regressão.',
+    evidence: '78/100 · 1 erro + 2 warnings · policy gate bloqueado',
+    proofUrl: 'https://github.com/WessYu/velocity/actions/runs/35720855635',
     paragraphs: [
       'CLI e API ESM para coletar evidências de performance combinando análise estática, artifacts de build, medições em Chromium, benchmarks e profiling de Node.js.',
       'O fluxo inclui comparação de baselines, gates de regressão em CI e saídas JSON/SARIF para manter decisões de otimização revisáveis.',
@@ -87,13 +95,15 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     title: 'SPECTER',
     kicker: 'DEFENSIVE APPSEC / SECURITY TOOLING',
     icon: '/projects/toolkit/specter.svg',
-    image: '/projects/specter/overview.svg',
-    imageAlt: 'SPECTER mostrando source, dependency, build e active security checks em um fluxo defensivo',
+    image: '/projects/specter/proof.svg',
+    imageAlt: 'Execução real do SPECTER bloqueando uma fixture vulnerável e aprovando uma fixture segura',
     repository: 'https://github.com/WessYu/SPECTER',
     npm: 'https://www.npmjs.com/package/@wess2001/specter',
     category: 'APPLICATION SECURITY',
     stack: 'Source · Runtime · CI',
     toolkitSummary: 'AppSec defensivo do código à aplicação publicada.',
+    evidence: 'vulnerável: 41/100 + 3 HIGH, bloqueado · segura: 100/100 + 0 findings, aprovada',
+    proofUrl: 'https://github.com/WessYu/SPECTER/actions/runs/35721670654',
     paragraphs: [
       'Ferramenta de application security para encontrar regressões antes e depois do deploy em código-fonte, secrets, dependências, build output e aplicações publicadas.',
       'O active testing é autorizado, limitado e não destrutivo, com budgets, rate limiting, cancelamento, relatórios JSON/SARIF e gates de CI.',
@@ -481,18 +491,23 @@ function ToolScene({ tool }: { tool: EngineeringTool }) {
       <button
         className="projectImageButton"
         type="button"
-        aria-label={`Abrir repositório do ${tool.title}`}
-        onClick={() => window.open(tool.demo || tool.repository, '_blank', 'noopener,noreferrer')}
+        aria-label={`Abrir prova reproduzível do ${tool.title}`}
+        onClick={() => window.open(tool.proofUrl, '_blank', 'noopener,noreferrer')}
       >
-        <img src={tool.image} alt={tool.imageAlt} width="1292" height="660" decoding="async" loading="lazy" />
+        <img className="toolProofImage" src={tool.image} alt={tool.imageAlt} width="1440" height="760" decoding="async" loading="lazy" />
       </button>
       <div className="projectLabel componentVaultLabel is-visible" data-reveal>
         <span className="componentVaultKicker">{tool.kicker}</span>
         <h2>{tool.title}</h2>
         {tool.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+        <div className="toolProofSummary">
+          <span>PROVA REPRODUZÍVEL</span>
+          <strong>{tool.evidence}</strong>
+        </div>
         <div className="componentVaultActions">
           {tool.demo && <a href={tool.demo} target="_blank" rel="noreferrer">Ver produto ↗</a>}
           <a href={tool.repository} target="_blank" rel="noreferrer">Ver código ↗</a>
+          <a href={tool.proofUrl} target="_blank" rel="noreferrer">Ver execução CI ↗</a>
           {tool.npm && <a href={tool.npm} target="_blank" rel="noreferrer">Ver npm ↗</a>}
         </div>
       </div>
