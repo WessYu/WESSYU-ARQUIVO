@@ -34,7 +34,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     title: 'NEXUS',
     kicker: 'ENGINEERING ORCHESTRATION',
     icon: '/projects/toolkit/nexus.svg',
-    image: '/projects/nexus/proof.png',
+    image: '/projects/nexus/proof.gif',
     imageAlt: 'Screenshot real do terminal executando o NEXUS com Component Vault, Velocity e SPECTER',
     repository: 'https://github.com/WessYu/NEXUS',
     npm: 'https://www.npmjs.com/package/@wess2001/nexus',
@@ -42,7 +42,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     stack: 'Quality · Performance · Security',
     toolkitSummary: 'Um engineering gate para os três motores.',
     evidence: '3 engines concluídos · performance 100/100 · security 100/100 · gate aprovado',
-    proofUrl: 'https://github.com/WessYu/NEXUS/actions/runs/35723969424',
+    proofUrl: 'https://github.com/WessYu/NEXUS/actions/runs/35851619544',
     paragraphs: [
       'CLI que orquestra Component Vault, Velocity e SPECTER, normaliza os resultados em um contrato comum e aplica uma política única de repositório.',
       'Qualidade, performance e segurança continuam como engines independentes, mas podem rodar em um único check antes do merge ou deploy.',
@@ -54,7 +54,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     title: 'Component Vault',
     kicker: 'DEV TOOL / COMPONENT GOVERNANCE',
     icon: '/projects/toolkit/component-vault.svg',
-    image: '/projects/component-vault/proof.png',
+    image: '/projects/component-vault/proof.gif',
     imageAlt: 'Screenshot real do terminal executando o Component Vault e validando o fluxo de correção',
     repository: 'https://github.com/WessYu/component-vault',
     npm: 'https://www.npmjs.com/package/@wess2001/component-vault',
@@ -63,7 +63,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     stack: 'AST · Components · CI',
     toolkitSummary: 'Governança de componentes e design system como código.',
     evidence: '3 violações CV006 → 8 edits → rescan limpo → build verde',
-    proofUrl: 'https://github.com/WessYu/component-vault/actions/runs/35724130448',
+    proofUrl: 'https://github.com/WessYu/component-vault/actions/runs/35851680128',
     paragraphs: [
       'Plataforma de componentes com um motor de governança baseado em TypeScript AST para TypeScript, TSX, JavaScript e JSX.',
       'A CLI reúne análise, baseline, PR reporting, autofix e automação em CI, com um workspace Next.js/React para organizar e revisar componentes.',
@@ -75,7 +75,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     title: 'Velocity',
     kicker: 'DEV TOOL / PERFORMANCE ENGINEERING',
     icon: '/projects/toolkit/velocity.svg',
-    image: '/projects/velocity/proof.png',
+    image: '/projects/velocity/proof.gif',
     imageAlt: 'Screenshot real do terminal executando o Velocity em uma API problemática',
     repository: 'https://github.com/WessYu/velocity',
     npm: 'https://www.npmjs.com/package/@wess2001/velocity',
@@ -83,7 +83,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     stack: 'Build · Browser · Benchmark',
     toolkitSummary: 'Evidência de performance e controle de regressão.',
     evidence: '78/100 · 1 erro + 2 warnings · policy gate bloqueado',
-    proofUrl: 'https://github.com/WessYu/velocity/actions/runs/35724135637',
+    proofUrl: 'https://github.com/WessYu/velocity/actions/runs/35851737710',
     paragraphs: [
       'CLI e API ESM para coletar evidências de performance combinando análise estática, artifacts de build, medições em Chromium, benchmarks e profiling de Node.js.',
       'O fluxo inclui comparação de baselines, gates de regressão em CI e saídas JSON/SARIF para manter decisões de otimização revisáveis.',
@@ -95,7 +95,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     title: 'SPECTER',
     kicker: 'DEFENSIVE APPSEC / SECURITY TOOLING',
     icon: '/projects/toolkit/specter.svg',
-    image: '/projects/specter/proof.png',
+    image: '/projects/specter/proof.gif',
     imageAlt: 'Screenshot real do terminal executando o SPECTER em fixtures vulnerável e segura',
     repository: 'https://github.com/WessYu/SPECTER',
     npm: 'https://www.npmjs.com/package/@wess2001/specter',
@@ -103,7 +103,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     stack: 'Source · Runtime · CI',
     toolkitSummary: 'AppSec defensivo do código à aplicação publicada.',
     evidence: 'vulnerável: 41/100 + 3 HIGH, bloqueado · segura: 100/100 + 0 findings, aprovada',
-    proofUrl: 'https://github.com/WessYu/SPECTER/actions/runs/35724229040',
+    proofUrl: 'https://github.com/WessYu/SPECTER/actions/runs/35851845201',
     paragraphs: [
       'Ferramenta de application security para encontrar regressões antes e depois do deploy em código-fonte, secrets, dependências, build output e aplicações publicadas.',
       'O active testing é autorizado, limitado e não destrutivo, com budgets, rate limiting, cancelamento, relatórios JSON/SARIF e gates de CI.',
@@ -458,10 +458,15 @@ function EngineeringToolkit() {
           <p className="metaLine">ENGINEERING TOOLKIT</p>
           <h2 id="toolkit-title">Quatro ferramentas. Um fluxo de engenharia.</h2>
         </div>
-        <p>
-          Component Vault, Velocity e SPECTER analisam áreas diferentes do produto. O NEXUS reúne esses sinais antes
-          do merge e do deploy, sem apagar a evidência produzida por cada engine.
-        </p>
+        <div className="engineeringToolkitCopy">
+          <p>
+            Component Vault, Velocity e SPECTER analisam áreas diferentes do produto. O NEXUS reúne esses sinais antes
+            do merge e do deploy, sem apagar a evidência produzida por cada engine.
+          </p>
+          <a href="/projects/toolkit/cli-proof-combined.gif" target="_blank" rel="noreferrer">
+            Ver execução combinada dos quatro ↗
+          </a>
+        </div>
       </div>
       <div className="engineeringToolkitGrid">
         {ENGINEERING_TOOLS.map((tool) => (
@@ -494,7 +499,7 @@ function ToolScene({ tool }: { tool: EngineeringTool }) {
         aria-label={`Abrir prova reproduzível do ${tool.title}`}
         onClick={() => window.open(tool.proofUrl, '_blank', 'noopener,noreferrer')}
       >
-        <img className="toolProofImage" src={tool.image} alt={tool.imageAlt} width="1440" height="760" decoding="async" loading="lazy" />
+        <img className="toolProofImage" src={tool.image} alt={tool.imageAlt} width="960" height="540" decoding="async" loading="lazy" />
       </button>
       <div className="projectLabel componentVaultLabel is-visible" data-reveal>
         <span className="componentVaultKicker">{tool.kicker}</span>

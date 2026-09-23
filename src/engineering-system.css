@@ -471,3 +471,39 @@
     padding: 12px 13px;
   }
 }
+
+
+/* Motion proof link and copy wrapper for the real terminal GIF pass. */
+.engineeringToolkitCopy {
+  max-width: 520px;
+  margin-top: clamp(58px, 5.2vw, 82px);
+  justify-self: end;
+}
+
+.engineeringToolkitCopy p {
+  color: rgba(242, 240, 234, .7);
+  font-size: 1rem;
+  line-height: 1.72;
+}
+
+.engineeringToolkitCopy a {
+  display: inline-block;
+  margin-top: 18px;
+  color: rgba(242, 240, 234, .78);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.engineeringToolkitCopy a:hover,
+.engineeringToolkitCopy a:focus-visible {
+  color: #f2f0ea;
+}
+
+@media (max-width: 980px) {
+  .engineeringToolkitCopy {
+    margin-top: 0;
+    justify-self: start;
+  }
+}
