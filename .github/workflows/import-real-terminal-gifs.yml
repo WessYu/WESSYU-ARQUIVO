@@ -1,0 +1,74 @@
+name: Import Real Terminal GIFs
+
+on:
+  push:
+    branches: [feat/real-terminal-gifs]
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feat/real-terminal-gifs
+
+      - name: Install media tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq unzip ffmpeg
+
+      - name: Download exact CLI recording artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/cli-gifs
+
+          curl -fL 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-4d58-820e-b7ff-6ee5b19ed3f1/raw?se=2026-09-23T11%3A03%3A52Z&sp=r&sv=2026-02-06&sr=b&scid=8405a5d1-dbc2-5db4-b107-5ab27c6105bb&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-23T10%3A01%3A49Z&ske=2026-09-24T10%3A01%3A49Z&sks=b&skv=2026-02-06&sig=A6/S1luI5kysP2Y77u%2BhJwGiWfHE/GQWJpdGIwL5gAs%3D' -o /tmp/cli-gifs/nexus.zip
+          curl -fL 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-8870-820e-b4bd-248ed61acd0a/raw?se=2026-09-23T11%3A03%3A55Z&sp=r&sv=2026-02-06&sr=b&scid=4f4a8eb0-129b-5268-ba8c-71920df59c80&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-23T10%3A40%3A46Z&ske=2026-09-24T10%3A40%3A46Z&sks=b&skv=2026-02-06&sig=D0sGj8y1LCSnNodjp4MpvluI9a/KlkzKk85sigayTMw%3D' -o /tmp/cli-gifs/component-vault.zip
+          curl -fL 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-79f8-820e-b0c0-6c77ac014c32/raw?se=2026-09-23T11%3A04%3A29Z&sp=r&sv=2026-02-06&sr=b&scid=e11290bb-c42c-51d5-abaf-141b107230a5&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-22T23%3A07%3A15Z&ske=2026-09-23T23%3A07%3A15Z&sks=b&skv=2026-02-06&sig=I%2BjZXkbS/xqvR7JWijMwqY%2BZ7fMyvx0O7UFUMoQjkwg%3D' -o /tmp/cli-gifs/velocity.zip
+          curl -fL 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-ecac-820e-9fc4-d1b29acfca80/raw?se=2026-09-23T11%3A05%3A42Z&sp=r&sv=2026-02-06&sr=b&scid=a8156724-530d-51a2-bb37-20219e2b64cc&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-23T08%3A30%3A18Z&ske=2026-09-24T08%3A30%3A18Z&sks=b&skv=2026-02-06&sig=%2BEcN/lkUnRQe9r8v4K4HleN2aMasxk1Ij59N5fU5B8w%3D' -o /tmp/cli-gifs/specter.zip
+
+      - name: Install individual GIFs and build combined showcase
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          for name in nexus component-vault velocity specter; do
+            mkdir -p "/tmp/cli-gifs/$name"
+            unzip -q "/tmp/cli-gifs/$name.zip" -d "/tmp/cli-gifs/$name"
+            test -s "/tmp/cli-gifs/$name/terminal.gif"
+            test -s "/tmp/cli-gifs/$name/terminal.mp4"
+            cp "/tmp/cli-gifs/$name/terminal.gif" "public/projects/$name/proof.gif"
+          done
+
+          cat > /tmp/cli-gifs/concat.txt <<'EOF'
+          file '/tmp/cli-gifs/nexus/terminal.mp4'
+          file '/tmp/cli-gifs/component-vault/terminal.mp4'
+          file '/tmp/cli-gifs/velocity/terminal.mp4'
+          file '/tmp/cli-gifs/specter/terminal.mp4'
+          EOF
+
+          ffmpeg -y -f concat -safe 0 -i /tmp/cli-gifs/concat.txt -c copy /tmp/cli-gifs/combined.mp4
+          ffmpeg -y -i /tmp/cli-gifs/combined.mp4             -filter_complex "[0:v]fps=8,scale=960:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=96[p];[s1][p]paletteuse=dither=bayer:bayer_scale=5"             -loop 0             public/projects/toolkit/cli-proof-combined.gif
+
+          file public/projects/nexus/proof.gif
+          file public/projects/component-vault/proof.gif
+          file public/projects/velocity/proof.gif
+          file public/projects/specter/proof.gif
+          file public/projects/toolkit/cli-proof-combined.gif
+
+      - name: Commit GIF assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/projects/nexus/proof.gif public/projects/component-vault/proof.gif public/projects/velocity/proof.gif public/projects/specter/proof.gif public/projects/toolkit/cli-proof-combined.gif
+          git commit -m "feat(portfolio): add real terminal GIF evidence"
+          git push origin HEAD:feat/real-terminal-gifs
