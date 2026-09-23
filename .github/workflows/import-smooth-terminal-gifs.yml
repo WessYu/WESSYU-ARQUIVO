@@ -1,0 +1,73 @@
+name: Import Smooth Terminal GIFs
+
+on:
+  push:
+    branches: [fix/smooth-terminal-gifs-v2]
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix/smooth-terminal-gifs-v2
+
+      - name: Install media tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq unzip ffmpeg
+
+      - name: Download exact smooth CLI recordings
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/smooth-cli
+
+          curl -fL 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-23c4-820e-bdfd-ad0d52d7bccd/raw?se=2026-09-23T11%3A17%3A41Z&sp=r&sv=2026-02-06&sr=b&scid=b7125c9c-7eb9-5699-a243-9fd7bff54f5c&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-23T09%3A17%3A26Z&ske=2026-09-24T09%3A17%3A26Z&sks=b&skv=2026-02-06&sig=9s%2BKYZ1To5ifK7uOow5aFtvfo%2BtPIs0ddHkn/YOdEB4%3D' -o /tmp/smooth-cli/nexus.zip
+          curl -fL 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-20b4-820e-9e84-8d878804922c/raw?se=2026-09-23T11%3A17%3A44Z&sp=r&sv=2026-02-06&sr=b&scid=36ce88a2-c9f8-5bd9-9868-be2d616705bd&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-23T10%3A40%3A47Z&ske=2026-09-24T10%3A40%3A47Z&sks=b&skv=2026-02-06&sig=x1VdvoMDtUaxJCppvcS4mXrx%2BS0cl%2BIRNYWd0B0HY2Q%3D' -o /tmp/smooth-cli/component-vault.zip
+          curl -fL 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-825c-820e-b382-16bbaa2d4a53/raw?se=2026-09-23T11%3A18%3A28Z&sp=r&sv=2026-02-06&sr=b&scid=ef9d104b-7bb0-57b9-840b-27f00a8f1b0a&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-23T10%3A57%3A42Z&ske=2026-09-24T10%3A57%3A42Z&sks=b&skv=2026-02-06&sig=IGlJlpjseHPOORik1XM8amc91SQPtiSrP5nhzeR5BuQ%3D' -o /tmp/smooth-cli/velocity.zip
+          curl -fL 'https://sdmntprbrazilsouth.oaiusercontent.com/files/00000000-8750-820e-96f3-cfe5c527615f/raw?se=2026-09-23T11%3A19%3A08Z&sp=r&sv=2026-02-06&sr=b&scid=8890759a-2e79-5f85-a385-fdd8bba4a0f9&skoid=86ad43b0-1afa-4d46-a6d6-9e67f7cdc5bc&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-09-23T10%3A16%3A22Z&ske=2026-09-24T10%3A16%3A22Z&sks=b&skv=2026-02-06&sig=f7YvED05cOciM7%2B5U85LjuX4O6NFcExXUOvVMzBKrJc%3D' -o /tmp/smooth-cli/specter.zip
+
+      - name: Install smooth GIFs and rebuild combined showcase
+        shell: bash
+        run: |
+          set -euo pipefail
+          for name in nexus component-vault velocity specter; do
+            mkdir -p "/tmp/smooth-cli/$name"
+            unzip -q "/tmp/smooth-cli/$name.zip" -d "/tmp/smooth-cli/$name"
+            test -s "/tmp/smooth-cli/$name/terminal.gif"
+            test -s "/tmp/smooth-cli/$name/terminal.mp4"
+            cp "/tmp/smooth-cli/$name/terminal.gif" "public/projects/$name/proof.gif"
+          done
+
+          cat > /tmp/smooth-cli/concat.txt <<'EOF'
+          file '/tmp/smooth-cli/nexus/terminal.mp4'
+          file '/tmp/smooth-cli/component-vault/terminal.mp4'
+          file '/tmp/smooth-cli/velocity/terminal.mp4'
+          file '/tmp/smooth-cli/specter/terminal.mp4'
+          EOF
+
+          ffmpeg -y -f concat -safe 0 -i /tmp/smooth-cli/concat.txt -c copy /tmp/smooth-cli/combined.mp4
+          ffmpeg -y -i /tmp/smooth-cli/combined.mp4             -filter_complex "[0:v]fps=20,scale=1120:-1:flags=lanczos,split[s0][s1];[s0]palettegen=max_colors=256:stats_mode=diff[p];[s1][p]paletteuse=dither=sierra2_4a:diff_mode=rectangle"             -loop 0 public/projects/toolkit/cli-proof-combined.gif
+
+          file public/projects/nexus/proof.gif
+          file public/projects/component-vault/proof.gif
+          file public/projects/velocity/proof.gif
+          file public/projects/specter/proof.gif
+          file public/projects/toolkit/cli-proof-combined.gif
+
+      - name: Commit smooth GIF assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/projects/nexus/proof.gif public/projects/component-vault/proof.gif public/projects/velocity/proof.gif public/projects/specter/proof.gif public/projects/toolkit/cli-proof-combined.gif
+          git commit -m "fix(portfolio): replace CLI GIFs with smooth real recordings"
+          git push origin HEAD:fix/smooth-terminal-gifs-v2
