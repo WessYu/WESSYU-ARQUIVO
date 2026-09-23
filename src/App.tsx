@@ -42,7 +42,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     stack: 'Quality · Performance · Security',
     toolkitSummary: 'Um engineering gate para os três motores.',
     evidence: '3 engines concluídos · performance 100/100 · security 100/100 · gate aprovado',
-    proofUrl: 'https://github.com/WessYu/NEXUS/actions/runs/35851619544',
+    proofUrl: 'https://github.com/WessYu/NEXUS/actions/runs/35852913755',
     paragraphs: [
       'CLI que orquestra Component Vault, Velocity e SPECTER, normaliza os resultados em um contrato comum e aplica uma política única de repositório.',
       'Qualidade, performance e segurança continuam como engines independentes, mas podem rodar em um único check antes do merge ou deploy.',
@@ -63,7 +63,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     stack: 'AST · Components · CI',
     toolkitSummary: 'Governança de componentes e design system como código.',
     evidence: '3 violações CV006 → 8 edits → rescan limpo → build verde',
-    proofUrl: 'https://github.com/WessYu/component-vault/actions/runs/35851680128',
+    proofUrl: 'https://github.com/WessYu/component-vault/actions/runs/35852978749',
     paragraphs: [
       'Plataforma de componentes com um motor de governança baseado em TypeScript AST para TypeScript, TSX, JavaScript e JSX.',
       'A CLI reúne análise, baseline, PR reporting, autofix e automação em CI, com um workspace Next.js/React para organizar e revisar componentes.',
@@ -83,7 +83,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     stack: 'Build · Browser · Benchmark',
     toolkitSummary: 'Evidência de performance e controle de regressão.',
     evidence: '78/100 · 1 erro + 2 warnings · policy gate bloqueado',
-    proofUrl: 'https://github.com/WessYu/velocity/actions/runs/35851737710',
+    proofUrl: 'https://github.com/WessYu/velocity/actions/runs/35853098962',
     paragraphs: [
       'CLI e API ESM para coletar evidências de performance combinando análise estática, artifacts de build, medições em Chromium, benchmarks e profiling de Node.js.',
       'O fluxo inclui comparação de baselines, gates de regressão em CI e saídas JSON/SARIF para manter decisões de otimização revisáveis.',
@@ -103,7 +103,7 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     stack: 'Source · Runtime · CI',
     toolkitSummary: 'AppSec defensivo do código à aplicação publicada.',
     evidence: 'vulnerável: 41/100 + 3 HIGH, bloqueado · segura: 100/100 + 0 findings, aprovada',
-    proofUrl: 'https://github.com/WessYu/SPECTER/actions/runs/35851845201',
+    proofUrl: 'https://github.com/WessYu/SPECTER/actions/runs/35853169108',
     paragraphs: [
       'Ferramenta de application security para encontrar regressões antes e depois do deploy em código-fonte, secrets, dependências, build output e aplicações publicadas.',
       'O active testing é autorizado, limitado e não destrutivo, com budgets, rate limiting, cancelamento, relatórios JSON/SARIF e gates de CI.',
