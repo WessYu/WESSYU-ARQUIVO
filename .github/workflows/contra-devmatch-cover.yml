@@ -1,0 +1,39 @@
+name: Build Contra DevMatch Cover
+
+on:
+  push:
+    branches: [tmp/contra-devmatch-cover]
+
+permissions:
+  contents: read
+
+jobs:
+  cover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build 4:3 cover variants from the real DevMatch screenshot
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p artifacts
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq imagemagick
+
+          INPUT="public/projects/devmatch/home.webp"
+
+          # Variant 1: center-crop the real screenshot to 4:3, then upscale to Contra's recommended size.
+          convert "$INPUT"             -gravity center             -crop 1120x840+0+0 +repage             -filter Lanczos             -resize 1600x1200             -strip             artifacts/devmatch-contra-cover-1600x1200.png
+
+          # Variant 2: preserve the entire screenshot and add narrow neutral side padding before resizing.
+          convert "$INPUT"             -background "#0b0b0c"             -gravity center             -extent 1200x900             -filter Lanczos             -resize 1600x1200             -strip             artifacts/devmatch-contra-cover-full-1600x1200.png
+
+          identify artifacts/*.png
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: devmatch-contra-cover
+          path: artifacts/*.png
+          if-no-files-found: error
+          retention-days: 7
