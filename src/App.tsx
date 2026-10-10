@@ -110,6 +110,26 @@ const ENGINEERING_TOOLS: EngineeringTool[] = [
     ],
     stamp: 'S',
   },
+  {
+    id: 'reaper',
+    title: 'REAPER',
+    kicker: 'DATA ACCESS SECURITY / APPSEC',
+    icon: '/projects/reaper/reaper-icon.png',
+    image: '/projects/reaper/proof.svg',
+    imageAlt: 'Prova real do CI do REAPER analisando fixtures vulnerável e segura',
+    repository: 'https://github.com/WessYu/REAPER',
+    npm: 'https://www.npmjs.com/package/@wess2001/reaper',
+    category: 'DATA ACCESS SECURITY',
+    stack: 'TypeScript · PostgreSQL · Authorization',
+    toolkitSummary: 'Rastreia quem pode acessar quais dados e por qual caminho.',
+    evidence: 'CI real: vulnerável com 1 HIGH + 2 MEDIUM · segura com 0 findings',
+    proofUrl: 'https://github.com/WessYu/REAPER/actions/runs/38094079292',
+    paragraphs: [
+      'Engine de segurança de acesso a dados que correlaciona rotas, autorização, ORM/SQL e evidência read-only do PostgreSQL para revisar ownership, isolamento de tenant, RLS e privilégios.',
+      'A análise é determinística e conservadora; verificações de runtime exigem alvos autorizados, limites explícitos e propriedades de autorização definidas pelo operador.',
+    ],
+    stamp: 'R',
+  },
 ]
 
 const PROJECTS: ProjectCase[] = [
@@ -456,15 +476,16 @@ function EngineeringToolkit() {
       <div className="engineeringToolkitLead" data-reveal>
         <div>
           <p className="metaLine">ENGINEERING TOOLKIT</p>
-          <h2 id="toolkit-title">Quatro ferramentas. Um fluxo de engenharia.</h2>
+          <h2 id="toolkit-title">Cinco ferramentas. Um fluxo de engenharia.</h2>
         </div>
         <div className="engineeringToolkitCopy">
           <p>
-            Component Vault, Velocity e SPECTER analisam áreas diferentes do produto. O NEXUS reúne esses sinais antes
-            do merge e do deploy, sem apagar a evidência produzida por cada engine.
+            Component Vault, Velocity e SPECTER analisam qualidade, performance e segurança da aplicação; o NEXUS
+            orquestra esses três sinais antes do merge e do deploy. O REAPER aprofunda a camada de autorização e acesso
+            a dados, correlacionando código e PostgreSQL sem fingir que é mais um engine do NEXUS.
           </p>
           <a href="/projects/toolkit/cli-proof-combined.gif" target="_blank" rel="noreferrer">
-            Ver execução combinada dos quatro ↗
+            Ver prova combinada do NEXUS ↗
           </a>
         </div>
       </div>
